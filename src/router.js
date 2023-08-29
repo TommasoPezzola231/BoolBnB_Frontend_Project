@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import HomeApp from './pages/HomeApp.vue';
-import ApartmentsIndex from './pages/ApartmentsIndex.vue';
-import ApartmentShow from './pages/ApartmentShow.vue';
-import NotFound from './pages/NotFound.vue';
+import HomeApp from './views/HomeApp.vue';
+import ApartmentsIndex from './views/ApartmentsIndex.vue';
+import ApartmentShow from './views/ApartmentShow.vue';
+import NotFound from './views/NotFound.vue';
 
 const router = createRouter({
     history: createWebHistory(),
