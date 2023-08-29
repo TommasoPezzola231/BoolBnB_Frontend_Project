@@ -39,5 +39,32 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import './styles/main.scss';
 
+header {
+  height: 5rem;
+  background-color: $primary-color;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+main {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  min-height: calc(100vh - 10rem);
+  background-color: $color-black;
+}
+
+footer {
+  height: 5rem;
+  background-color: $primary-color;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
 </style>
