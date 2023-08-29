@@ -31,22 +31,45 @@ export default {
 </script>
 
 <template>
-   <section>
-        <h1>Home Page</h1>
-        <h2>Mappa</h2>
-        <h2>appartamenti in evidenza</h2>
-        <h2>altri appartamenti?</h2>
-        <h2>about</h2>
-        <h2>altro ecc</h2>
+   <section class="d-flex align-items-center min-vh-100-md p-4">
+        <div class="container">
+            <!-- benvenuto -->
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-1">Benvenuto su BoolBnB</h1>
+                    <p class="lead">Trova un appartamento per le tue vacanze o per un soggiorno di lavoro</p>
+                </div>
+            </div>
+            <!-- cerca citta -->
+            <div class="row">
+                <div class="p-5 mb-4 bg-dark text-light rounded-3">
+                    <div class="container-fluid py-5">
+                        <h1 class="display-5 fw-bold">Cerca il tuo prossimo soggiorno</h1>
+                        <p class="col-md-8 fs-4 mt-3">Inserisci il nome della città</p>
+                        <form>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control text-dark" id="floatingInput" placeholder="Roma">
+                                <label for="floatingInput">Città</label>
+                            </div>
+                            <!-- bottone cerca -->
+                            <router-link :to="{ name: 'apartments-index' }" class="btn btn-primary btn-lg">
+                                Cerca
+                            </router-link>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- appartamenti in evidenza -->
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="display-2">Appartamenti in evidenza</h2>
+                </div>
+            </div>
+        </div>
    </section>
 </template>
 
 <style lang="scss" scoped>
 @import '../styles/main.scss';
-
-section {
-    padding: 2rem;
-    // giusto per staccare dai bordi
-}
 
 </style>
