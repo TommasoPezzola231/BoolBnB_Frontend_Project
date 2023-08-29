@@ -4,11 +4,8 @@ export default {
   name: 'HeaderApp',
 
   data () {
-    return {
-        navLinks: [
-            { routeName: '/', label: 'Home'},
-            { routeName: '/apartments', label: 'Apartments'}
-        ]
+    return { 
+      title : 'BoolBnB',
     }
   },
 }
@@ -16,15 +13,52 @@ export default {
 </script>
 
 <template>
-   <section>
-        <h1>Header</h1>
+  <!-- header using bootstrap  -->
+  <div class="container-fluid h-100">
+      <div class="row h-100">
+        <div class="col d-flex justify-content-center justify-content-sm-between align-items-center h-100">
+          <router-link :to="{ name: 'home' }" class="align-items-center h-100 d-flex text-decoration-none">
+            <div class="h100">
+              <img src="logo" alt="logo" class="img-fluid" width="100px">
+            </div>
+            <div>
+              <h1>{{ title }}</h1>
+            </div>
+          </router-link>
 
-        <template v-for="item in navLinks">
-            <router-link class="btn btn-secondary ms-3" :to="item.routeName">{{item.label}}</router-link>
-        </template>
-   </section>
+          <div class="d-flex justify-content-end gap-3">
+            <router-link :to="{ name: 'home' }" class="align-items-center h100 d-flex text-decoration-none">
+              <div>
+                <h4>Home</h4>
+              </div>
+            </router-link>
+  
+            <router-link :to="{ name: 'apartments-index' }" class="align-items-center h100 d-flex text-decoration-none">
+              <div>
+                <h4>Vai alla ricerca</h4>
+              </div>
+            </router-link>
+  
+            <!-- <router-link :to="{ name: 'login' }" class="align-items-center h100 d-flex">
+              <div>
+                <h4>Login</h4>
+              </div>
+            </router-link> -->
+  
+            <!-- <router-link :to="{ name: 'register' }" class="align-items-center h100 d-flex">
+              <div>
+                <h4>Register</h4>
+              </div>
+            </router-link> -->
+          </div>
+        </div>
+      </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+@import '../../styles/main.scss';
+
+
 
 </style>
