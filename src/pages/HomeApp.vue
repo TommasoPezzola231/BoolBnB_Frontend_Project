@@ -19,9 +19,20 @@ export default {
 <template>
    <section>
         <h1>Home Page</h1>
+        <h2>Mappa</h2>
+        <h2>appartamenti in evidenza</h2>
+        <h2>altri appartamenti?</h2>
+        <h2>about</h2>
+        <h2>altro ecc</h2>
    </section>
 </template>
 
 <style lang="scss" scoped>
+@import '../styles/main.scss';
+
+section {
+    padding: 2rem;
+    // giusto per staccare dai bordi
+}
 
 </style>
