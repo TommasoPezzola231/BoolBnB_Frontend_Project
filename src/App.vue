@@ -43,7 +43,7 @@ export default {
 
 header {
   height: 5rem;
-  background-color: $primary-color;
+  background-color: $color-primary;
   width: 100%;
   position: fixed;
   top: 0;
@@ -60,7 +60,7 @@ main {
 
 footer {
   height: 5rem;
-  background-color: $primary-color;
+  background-color: $color-primary;
   width: 100%;
   position: fixed;
   bottom: 0;
