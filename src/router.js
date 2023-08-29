@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import HomeApp from './pages/HomeApp.vue';
 import ApartmentsIndex from './pages/ApartmentsIndex.vue';
+import ApartmentShow from './pages/ApartmentShow.vue';
+import NotFound from './pages/NotFound.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -13,9 +15,19 @@ const router = createRouter({
         },
         {
             path: '/apartments',
-            name: 'apartments',
+            name: 'apartments-index',
             component: ApartmentsIndex,
         },
+        {
+            path: '/apartments/:id',
+            name: 'apartment-show',
+            component: ApartmentShow,
+        },
+        {
+            path: '/:pathMath(.*)*',
+            name: 'not-found-404',
+            component: NotFound,
+        }
     ],
 });
 
