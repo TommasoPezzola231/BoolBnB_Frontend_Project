@@ -11,5 +11,4 @@ export const store = reactive({
     lon: '',
     address: '',
     range: 20,
-    apiKey: process.env.VUE_APP_TOMTOM_API_KEY,
 });
