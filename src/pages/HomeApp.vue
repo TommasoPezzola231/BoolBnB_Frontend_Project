@@ -1,12 +1,16 @@
 <script>
 
 import axios from 'axios';
-
+import HeaderApp from '../components/header/HeaderApp.vue'
+import FooterApp from '../components/footer/FooterApp.vue'
 export default {
     name: 'HomeApp',
+    components: {
+        HeaderApp,
+        FooterApp
+    },
     data () {
         return {
-            store,
         }
     },
 }
