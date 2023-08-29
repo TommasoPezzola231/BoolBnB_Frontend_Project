@@ -13,6 +13,20 @@ export default {
         return {
         }
     },
+
+    // methods: { prova per far funzioanre api key tom tom dal file .env
+    //     getTomTom() {
+    //         const apiKey = process.env.VUE_APP_TOMTOM_API_KEY;
+    //         const url = `https://api.tomtom.com/search/2/search/roma.json?key=${apiKey}&countrySet=IT&lat=41.9109&lon=12.4818&limit=1`;
+    //         axios.get(url)
+    //         .then(response => {
+    //             console.log(response.data.results);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         });
+    //     }
+    // },
 }
 </script>
 
