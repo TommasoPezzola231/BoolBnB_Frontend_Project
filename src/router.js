@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import HomeApp from './pages/HomeApp.vue';
 
-const routes = createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes: [
         { 
@@ -16,4 +16,4 @@ const routes = createRouter({
     ],
 });
 
-export default routes;
+export { router }
