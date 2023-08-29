@@ -5,6 +5,10 @@ export default {
 
   data () {
     return {
+        navLinks: [
+            { routeName: '/', label: 'Home'},
+            { routeName: '/apartments', label: 'Apartments'}
+        ]
     }
   },
 }
@@ -14,6 +18,10 @@ export default {
 <template>
    <section>
         <h1>Header</h1>
+
+        <template v-for="item in navLinks">
+            <router-link class="btn btn-secondary ms-3" :to="item.routeName">{{item.label}}</router-link>
+        </template>
    </section>
 </template>
 

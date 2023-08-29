@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import HomeApp from './pages/HomeApp.vue';
+import ApartmentsIndex from './pages/ApartmentsIndex.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -11,7 +12,9 @@ const router = createRouter({
             component: HomeApp,
         },
         {
-            // altre path 
+            path: '/apartments',
+            name: 'apartments',
+            component: ApartmentsIndex,
         },
     ],
 });
