@@ -17,25 +17,25 @@ export default {
   <div class="container-fluid h-100">
       <div class="row h-100">
         <div class="col d-flex justify-content-center justify-content-sm-between align-items-center h-100">
-          <router-link :to="{ name: 'home' }" class="align-items-center h-100 d-flex text-decoration-none">
+          <router-link :to="{ name: 'home' }" class="align-items-center h-100 d-flex text-decoration-none gap-2">
             <div class="h100">
               <img src="logo" alt="logo" class="img-fluid" width="100px">
             </div>
             <div>
-              <h1>{{ title }}</h1>
+              <h1 class="my_header_color_text">{{ title }}</h1>
             </div>
           </router-link>
 
           <div class="d-flex justify-content-end gap-3">
             <router-link :to="{ name: 'home' }" class="align-items-center h100 d-flex text-decoration-none">
               <div>
-                <h4>Home</h4>
+                <h4 class="my_header_color_text">Home</h4>
               </div>
             </router-link>
   
             <router-link :to="{ name: 'apartments-index' }" class="align-items-center h100 d-flex text-decoration-none">
               <div>
-                <h4>Vai alla ricerca</h4>
+                <h4 class="my_header_color_text">Vai alla ricerca</h4>
               </div>
             </router-link>
   
@@ -58,6 +58,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../styles/main.scss';
+
+.my_header_color_text {
+  color: $color-text-primary;
+}
 
 
 
