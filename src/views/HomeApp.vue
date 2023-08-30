@@ -1,5 +1,5 @@
 <script>
-
+import { store } from '../store.js';
 import axios from 'axios';
 import HeaderApp from '../components/header/HeaderApp.vue'
 import FooterApp from '../components/footer/FooterApp.vue'
@@ -26,14 +26,14 @@ export default {
 
     data () {
         return {
-            ApiUrl: "http://localhost:8000/api",
+            store,
             apartments: [],
         }
     },
     methods: {
 
         getProjects() {
-            axios.get(this.ApiUrl + "/apartments")
+            axios.get(`${this.store.baseUrl}${this.store.apiEndpoint}/apartments`)
             .then(result => {
             this.apartments = result.data.apartments.data;
             })
@@ -44,7 +44,7 @@ export default {
 
         getImageUrl(imagePath) {
             return imagePath
-            ? `http://localhost:8000/storage/${imagePath}`
+            ? `${this.store.baseUrl}${this.store.storageUrl}${imagePath}`
             : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png';
         },        
     },
