@@ -11,8 +11,51 @@ export default {
     },
     data () {
         return {
+            ApiUrl: "http://localhost:8000/api",
+            apartments: [],
+            currentPage: 0,
+            lastPage: 0,
         }
     },
+    methods: {
+        getProjects(number) {
+            axios.get(this.ApiUrl + "/apartments", {
+                params: {
+                    page: number
+                },
+            }).then(result =>{
+                this.apartments = result.data.apartments.data,
+                this.currentPage = result.data.apartments.current_page,
+                this.lastPage = result.data.apartments.last_page
+                //this.loading = false
+            }).catch(err => {
+                //this.$router.push( { name: "not-found" } )
+            })
+        },
+        nextPage(){
+            let pageNumber = this.currentPage + 1
+
+            if( pageNumber > 0 && pageNumber <= this.lastPage ) {
+
+                this.getProjects(pageNumber)
+
+            }
+        },
+        previousPage() {
+            let pageNumber = this.currentPage - 1
+
+            if( pageNumber > 0 && pageNumber <= this.lastPage ) {
+
+                this.getProjects(pageNumber)
+
+            }
+        }
+
+    },
+    mounted () {
+        this.getProjects(this.currentPage)
+    }
+}
 
     // methods: { prova per far funzioanre api key tom tom dal file .env
     //     getTomTom() {
@@ -27,7 +70,7 @@ export default {
     //         });
     //     }
     // },
-}
+
 </script>
 
 <template>
@@ -60,9 +103,24 @@ export default {
                 </div>
             </div>
             <!-- appartamenti in evidenza -->
-            <div class="row">
-                <div class="col-12">
+            <div class="row ">
+                <div class="col-12 position-relative">
                     <h2 class="display-2">Appartamenti in evidenza</h2>
+
+                    <button class="btn btn-primary position-absolute top-50 start-0" @click="previousPage()">Ind</button>
+                    <button class="btn btn-primary position-absolute top-50 end-0" @click="nextPage()">-></button>
+
+                    <div class="row d-flex justify-content-evenly mt-5">
+                        <template v-for="apartment in apartments">
+                            <div class="card col-2">
+                                <img class="" :src="apartment.principal_image ? 'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{apartment.title}}</h5>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
                 </div>
             </div>
         </div>
