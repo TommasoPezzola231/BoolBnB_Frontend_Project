@@ -63,7 +63,6 @@ export default {
                                     <p class="placeholder col-7"></p>
                                     <p class="placeholder col-4"></p>
                                     <p class="placeholder col-4"></p>
-                                    <p class="placeholder col-6"></p>
                                 </div>
                             </div>
                         </div>
