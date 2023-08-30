@@ -17,7 +17,7 @@ export default {
                     <form>
                         <div class="form-floating mb-3 col-md-8 col-lg-5">
                             <input type="text" class="form-control text-dark" id="floatingInput" placeholder="Roma">
-                            <label for="floatingInput">Città</label>
+                            <label class="text-dark" for="floatingInput">Città</label>
                         </div>
                         <!-- bottone cerca -->
                         <router-link :to="{ name: 'apartments-index' }" class="btn btn-lg my_btn">
