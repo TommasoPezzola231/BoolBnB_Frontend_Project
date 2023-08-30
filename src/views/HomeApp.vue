@@ -16,6 +16,14 @@ export default {
         AboutBoolBnB,
         FooterApp,
     },
+
+    props: {
+        title: {
+            type: String,
+            default: 'BoolBnB',
+        },
+    },
+
     data () {
         return {
             ApiUrl: "http://localhost:8000/api",
@@ -53,7 +61,7 @@ export default {
             <!-- benvenuto -->
             <div class="row">
                 <div class="col-12">
-                    <h1>Benvenuto su BoolBnB</h1>
+                    <h1>Benvenuto su {{ title }}</h1>
                     <p class="lead text-white">Trova un appartamento per le tue vacanze o per un soggiorno di lavoro</p>
                 </div>
             </div>
