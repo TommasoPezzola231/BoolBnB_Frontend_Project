@@ -1,19 +1,20 @@
 <script>
-
+import { store } from '../store.js';
 import axios from 'axios';
-import HeaderApp from '../components/header/HeaderApp.vue'
-import FooterApp from '../components/footer/FooterApp.vue'
-import SearchCity from '../components/main/homepage/SearchCity.vue'
-import SponsoredApartments from '../components/main/homepage/SponsoredApartments.vue'
+import HeaderApp from '../components/header/HeaderApp.vue';
+import FooterApp from '../components/footer/FooterApp.vue';
+import SearchLocation from '../components/main/homepage/SearchLocation.vue';
+import SponsoredApartments from '../components/main/homepage/SponsoredApartments.vue';
 import AboutBoolBnB from '../components/main/homepage/AboutBoolBnB.vue';
-
+import NavLinkFooter from '../components/footer/NavLinkFooter.vue';
 export default {
     name: 'HomeApp',
     components: {
         HeaderApp,
-        SearchCity,
+        SearchLocation,
         SponsoredApartments,
         AboutBoolBnB,
+        NavLinkFooter,
         FooterApp,
     },
 
@@ -26,14 +27,14 @@ export default {
 
     data () {
         return {
-            ApiUrl: "http://localhost:8000/api",
+            store,
             apartments: [],
         }
     },
     methods: {
 
         getProjects() {
-            axios.get(this.ApiUrl + "/apartments")
+            axios.get(`${this.store.baseUrl}${this.store.apiEndpoint}/apartments`)
             .then(result => {
             this.apartments = result.data.apartments.data;
             })
@@ -42,11 +43,11 @@ export default {
             });
         },
 
-        getImageUrl(imagePath) {
-            return imagePath
-            ? `http://localhost:8000/storage/${imagePath}`
-            : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png';
-        },        
+        // getImageUrl(imagePath) {
+        //     return imagePath
+        //     ? `${this.store.storageUrl}${imagePath}`
+        //     : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png';
+        // },        
     },
 
     mounted () {
@@ -56,8 +57,8 @@ export default {
 </script>
 
 <template>
-   <section class="d-flex align-items-center min-vh-100-md p-4">
-        <div class="container">
+   <section class="d-flex align-items-center min-vh-100-md p-5">
+        <div class="container-fluid">
             <!-- benvenuto -->
             <div class="row">
                 <div class="col-12">
@@ -66,11 +67,13 @@ export default {
                 </div>
             </div>
             <!-- cerca citta -->
-            <SearchCity />
+            <SearchLocation />
             <!-- appartamenti in evidenza -->
-            <SponsoredApartments :apartments="apartments" :getImageUrl="getImageUrl" />
+            <SponsoredApartments :apartments="apartments" />
             <!-- about -->
             <AboutBoolBnB />
+            <!-- nav link footer -->
+            <NavLinkFooter />
         </div>
    </section>
 </template>
