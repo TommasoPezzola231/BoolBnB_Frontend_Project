@@ -25,7 +25,7 @@ export default {
         },
     },
 
-    data () {
+    data() {
         return {
             store,
             apartments: [],
@@ -35,12 +35,12 @@ export default {
 
         getProjects() {
             axios.get(`${this.store.baseUrl}${this.store.apiEndpoint}/apartments`)
-            .then(result => {
-            this.apartments = result.data.apartments.data;
-            })
-            .catch(err => {
-                console.log(err);
-            });
+                .then(result => {
+                    this.apartments = result.data.apartments.data;
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         },
 
         // getImageUrl(imagePath) {
@@ -50,14 +50,14 @@ export default {
         // },        
     },
 
-    mounted () {
+    mounted() {
         this.getProjects();
     },
 }
 </script>
 
 <template>
-   <section class="d-flex align-items-center min-vh-100-md p-5">
+    <section class="d-flex align-items-center min-vh-100-md p-5">
         <div class="container-fluid">
             <!-- benvenuto -->
             <div class="row">
@@ -75,10 +75,10 @@ export default {
             <!-- nav link footer -->
             <NavLinkFooter />
         </div>
-   </section>
+    </section>
 </template>
 
 <style lang="scss" scoped>
 @import '../styles/main.scss';
-
+@import '../styles/partials/_variables.scss';
 </style>
