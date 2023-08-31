@@ -6,7 +6,7 @@ import FooterApp from '../components/footer/FooterApp.vue';
 import SearchLocation from '../components/main/homepage/SearchLocation.vue';
 import SponsoredApartments from '../components/main/homepage/SponsoredApartments.vue';
 import AboutBoolBnB from '../components/main/homepage/AboutBoolBnB.vue';
-
+import NavLinkFooter from '../components/footer/NavLinkFooter.vue';
 export default {
     name: 'HomeApp',
     components: {
@@ -14,6 +14,7 @@ export default {
         SearchLocation,
         SponsoredApartments,
         AboutBoolBnB,
+        NavLinkFooter,
         FooterApp,
     },
 
@@ -56,8 +57,8 @@ export default {
 </script>
 
 <template>
-   <section class="d-flex align-items-center min-vh-100-md p-4">
-        <div class="container">
+   <section class="d-flex align-items-center min-vh-100-md p-5">
+        <div class="container-fluid">
             <!-- benvenuto -->
             <div class="row">
                 <div class="col-12">
@@ -68,9 +69,11 @@ export default {
             <!-- cerca citta -->
             <SearchLocation />
             <!-- appartamenti in evidenza -->
-            <SponsoredApartments :apartments="apartments" :getImageUrl="getImageUrl" />
+            <SponsoredApartments :apartments="apartments" />
             <!-- about -->
             <AboutBoolBnB />
+            <!-- nav link footer -->
+            <NavLinkFooter />
         </div>
    </section>
 </template>

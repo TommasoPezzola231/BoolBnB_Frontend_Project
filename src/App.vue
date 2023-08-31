@@ -10,7 +10,7 @@ export default {
 
   components: {
     HeaderApp,
-    FooterApp
+    FooterApp,
   },
 
   data () {
@@ -24,7 +24,7 @@ export default {
 
 <template>
 
-  <header>
+  <header class="px-2">
     <HeaderApp />
   </header>
 
@@ -32,7 +32,7 @@ export default {
     <router-view></router-view>
   </main>
 
-  <footer>
+  <footer class="px-2">
     <FooterApp />
   </footer>
   
