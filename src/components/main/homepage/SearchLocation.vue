@@ -1,15 +1,22 @@
 <script>
+import { store } from '../../../store.js';
 import axios from 'axios';
-import { store } from "../../../store"
+import MapNormal from '../maps/MapNormal.vue';
 
 export default {
     name: 'SearchLocation',
+    components: {
+        MapNormal
+    },
+
     data() {
         return {
             store,
             open: false,
+            apartments: [],
         };
     },
+
     methods: {
        async searchApartment(city) {
             try {
@@ -31,15 +38,22 @@ export default {
             }
     
         }
-    }
+    },
+
+    startMapNormal() {
+        setTimeout(() => {
+            this.$refs.mapNormal.getMap();
+        }, 2000);
+    },
 }
+
 </script>
 
 <template>
     <!-- cerca citta -->
     <section class="mt-5">
-        <div class="row">
-            <div class="col col-lg-6 d-flex flex-column flex-lg-row gap-5 w-100">
+        <div class="row d-flex">
+            <div class="col-12 col-md-6 col-lg-5  col-xl-4 mb-3 h-100">
                 <div class="p-5 mb-4 text-light rounded-3 my_bg-jumbo">
                     <div class="py-5">
                         <h1 class="display-5 fw-bold">Cerca il tuo prossimo soggiorno</h1>
@@ -54,9 +68,11 @@ export default {
                         </form>
                     </div>
                 </div>
-                <div class="img">
-                    <img src="https://www.ncgtp.com/NCGTP_Map_Images/map-main-placeholder.jpg" class="img-fluid rounded" alt="Responsive image">
-                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3 d-flex">
+                <!-- mappa -->
+                <MapNormal ref="mapNormal" :lat="41.902782" :lon="12.496366" :TOMTOM_API_KEY="store.TOMTOM_API_KEY" :apartments="apartments" class="rounded"/>
+                <!-- <img src="https://www.ncgtp.com/NCGTP_Map_Images/map-main-placeholder.jpg" class="img-fluid rounded" alt="Responsive image"> -->
             </div>
         </div>
     </section>
@@ -81,4 +97,3 @@ export default {
     }
 }
 </style>
-

@@ -7,6 +7,7 @@ import SearchLocation from '../components/main/homepage/SearchLocation.vue';
 import SponsoredApartments from '../components/main/homepage/SponsoredApartments.vue';
 import AboutBoolBnB from '../components/main/homepage/AboutBoolBnB.vue';
 import NavLinkFooter from '../components/footer/NavLinkFooter.vue';
+
 export default {
     name: 'HomeApp',
     components: {
@@ -35,19 +36,13 @@ export default {
 
         getProjects() {
             axios.get(`${this.store.baseUrl}${this.store.apiEndpoint}/apartments`)
-                .then(result => {
-                    this.apartments = result.data.apartments.data;
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        },
-
-        // getImageUrl(imagePath) {
-        //     return imagePath
-        //     ? `${this.store.storageUrl}${imagePath}`
-        //     : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png';
-        // },        
+            .then(result => {
+            this.apartments = result.data.apartments.data;
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        },   
     },
 
     mounted() {
