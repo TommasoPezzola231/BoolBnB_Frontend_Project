@@ -14,4 +14,6 @@ export const store = reactive({
     lon: '',
     address: '',
     range: 20,
+    // key tom tom 
+    TOMTOM_API_KEY:'nkr5gnmh40fpVDC8AD8yeyHG6DnNrhZT',
 });
