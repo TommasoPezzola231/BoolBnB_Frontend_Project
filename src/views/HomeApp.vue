@@ -37,7 +37,7 @@ export default {
         getProjects() {
             axios.get(`${this.store.baseUrl}${this.store.apiEndpoint}/apartments`)
             .then(result => {
-            this.apartments = result.data.apartments.data;
+            this.apartments = result.data.apartments;
             })
             .catch(err => {
                 console.log(err);
