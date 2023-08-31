@@ -1,9 +1,37 @@
 <script>
+import axios from 'axios';
+import { store } from "../../../store"
 
 export default {
     name: 'SearchLocation',
-}
+    data() {
+        return {
+            store,
+            open: false,
+        };
+    },
+    methods: {
+       async searchApartment(city) {
+            try {
+                const response = await axios.get(`http://localhost:8000/api/apartments/search`, {
+                params: {
+                    city: city,
+                },
+                });
+                console.log(response)
+                // Chiamata alla mutazione per salvare i risultati nello store
+                this.store.apartments = response.data;
+                console.log(this.store.apartments),
 
+                // Reindirizzamento
+                this.$router.push({ name: 'apartments-index' });
+            } catch (error) {
+                console.error('Errore durante la ricerca:', error);
+            }
+    
+        }
+    }
+}
 </script>
 
 <template>
@@ -15,7 +43,7 @@ export default {
                     <div class="py-5">
                         <h1 class="display-5 fw-bold">Cerca il tuo prossimo soggiorno</h1>
                         <p class="col-md-8 fs-4 mt-3">Inserisci il nome della città</p>
-                        <form action="http://localhost:8000/api/apartments/search">
+                        <form @submit.prevent="searchApartment($event.target.city.value)">
                             <div class="form-floating mb-3 col-md-8 col-lg-5">
                                 <input type="text" class="form-control text-dark" id="city" placeholder="Roma" name="city">
                                 <label name="city" class="text-dark" for="floatingInput">Città</label>
