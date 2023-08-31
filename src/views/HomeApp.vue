@@ -1,10 +1,10 @@
 <script>
 import { store } from '../store.js';
 import axios from 'axios';
-import HeaderApp from '../components/header/HeaderApp.vue'
-import FooterApp from '../components/footer/FooterApp.vue'
-import SearchCity from '../components/main/homepage/SearchCity.vue'
-import SponsoredApartments from '../components/main/homepage/SponsoredApartments.vue'
+import HeaderApp from '../components/header/HeaderApp.vue';
+import FooterApp from '../components/footer/FooterApp.vue';
+import SearchCity from '../components/main/homepage/SearchCity.vue';
+import SponsoredApartments from '../components/main/homepage/SponsoredApartments.vue';
 import AboutBoolBnB from '../components/main/homepage/AboutBoolBnB.vue';
 
 export default {
@@ -42,11 +42,11 @@ export default {
             });
         },
 
-        getImageUrl(imagePath) {
-            return imagePath
-            ? `${this.store.baseUrl}${this.store.storageUrl}${imagePath}`
-            : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png';
-        },        
+        // getImageUrl(imagePath) {
+        //     return imagePath
+        //     ? `${this.store.storageUrl}${imagePath}`
+        //     : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png';
+        // },        
     },
 
     mounted () {
