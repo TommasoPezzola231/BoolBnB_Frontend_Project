@@ -8,10 +8,10 @@ export default {
             type: Array,
             required: true,
         },
-        getImageUrl: {
-            type: Function,
-            required: true,
-        },
+        // getImageUrl: {
+        //     type: Function,
+        //     required: true,
+        // },
     },  
 
     data() {
@@ -38,7 +38,8 @@ export default {
                     <template v-for="apartment in apartments" :key="apartment.id">
                         <div class="col col-md-6 col-lg-4 col-xl-3">
                             <div class="card text-white bg-dark h-100 d-flex align-items-stretch">
-                                <img :src="getImageUrl(apartment.principal_image)" class="card-img-top" alt="Apartment Image">
+                                <!-- <img :src="getImageUrl(apartment.principal_image)" class="card-img-top" alt="Apartment Image"> -->
+                                <img :src="(apartment.full_path_principal_image ? apartment.full_path_principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png')" class="card-img-top" :alt="apartment.title">
                                 <div class="card-body">
                                     <p class="card-title"><strong>{{ apartment.title }}</strong></p>
                                     <p class="card-text">{{ apartment.price }} € <small> • per notte</small></p>
