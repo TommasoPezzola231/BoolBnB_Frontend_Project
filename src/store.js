@@ -14,5 +14,6 @@ export const store = reactive({
     lon: '',
     address: '',
     range: 20,
+    city: "",
     apartments: [],
 });

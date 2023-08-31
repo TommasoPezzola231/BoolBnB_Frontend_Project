@@ -28,7 +28,7 @@ export default {
                 "Animali domestici ammessi",
                 "Camino"
             ],
-            city: "",
+            city: store.city,
             radius: "20",
             num_rooms: "",
             num_bathrooms: "",
@@ -74,12 +74,12 @@ export default {
     
                 <div class="col-3 p-2">
                     <label for="radius" class="form-label">Imposta raggio di ricerca</label>
-                    <input type="number" class="form-control" v-model="radius" id="radius" name="radius">
+                    <input type="number" class="form-control" v-model="radius" id="radius" name="radius" required>
                 </div>
     
                 <div class="col-3 p-2">
                     <label for="city" class="form-label">Città</label>
-                    <input type="text" class="form-control" v-model="city" id="city" name="city">
+                    <input type="text" class="form-control" v-model="city" id="city" name="city" required>
                 </div>
     
                 <div class="col-3 p-2">

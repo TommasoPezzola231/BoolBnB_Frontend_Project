@@ -21,6 +21,7 @@ export default {
                 console.log(response)
                 // Chiamata alla mutazione per salvare i risultati nello store
                 this.store.apartments = response.data;
+                this.store.city = city,
                 console.log(this.store.apartments),
 
                 // Reindirizzamento
