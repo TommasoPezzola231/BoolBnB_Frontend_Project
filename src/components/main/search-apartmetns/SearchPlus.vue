@@ -51,6 +51,7 @@ export default {
                     serviceID: this.selectedServices,
                 },
                 });
+                console.log(this.selectedServices)
                 console.log(response)
                 // Chiamata alla mutazione per salvare i risultati nello store
                 this.store.apartments = response.data;
@@ -109,11 +110,10 @@ export default {
     
                 <div class="col-3 p-2">
     
-                    <label v-for="(service, index) in services" :key="index" class="dropdown-item">
-                        <input type="checkbox" :value="service" v-model="selectedServices" name="serviceID">
+                    <label v-for="(service, index) in services" :key="index + 1" class="dropdown-item">
+                        <input type="checkbox" :value="index + 1" v-model="selectedServices" name="serviceID">
                         {{ service }}
                     </label>
-                    <input type="hidden" :name="'serviceID[]'" v-for="service in selectedServices" :value="service">
                 </div>
     
             </div>
