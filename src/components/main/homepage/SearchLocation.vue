@@ -13,6 +13,7 @@ export default {
         return {
             store,
             open: false,
+            apartments: [],
         };
     },
 
