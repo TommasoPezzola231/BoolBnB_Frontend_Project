@@ -80,4 +80,5 @@ export default {
 
 <style lang="scss" scoped>
 @import '../styles/main.scss';
+@import '../styles/partials/_variables.scss';
 </style>
