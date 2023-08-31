@@ -27,6 +27,10 @@ export default {
             <h3>{{ apartment.title }}</h3>
             <small>{{ apartment.city }}</small>
             <p>{{ apartment.description }}</p>
+            <p>{{ apartment.address }}</p>
+            <p>Numero bagni: {{ apartment.num_bathrooms }}</p>
+            <p>Numero stanze:{{ apartment.num_rooms }}</p>
+            <p>Prezzo: {{ apartment.price }}€</p>
             <!-- ... altri dettagli dell'appartamento ... -->
           </div>
         </div>
