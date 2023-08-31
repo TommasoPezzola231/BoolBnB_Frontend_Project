@@ -30,6 +30,11 @@ export default {
             <p>{{ apartment.address }}</p>
             <p>Numero bagni: {{ apartment.num_bathrooms }}</p>
             <p>Numero stanze:{{ apartment.num_rooms }}</p>
+            <ul>
+                <template v-for="service in apartment.services">
+                    <li class="badge text-bg-info me-2">{{ service.name_service }}</li>
+                </template>
+            </ul>
             <p>Prezzo: {{ apartment.price }}€</p>
             <!-- ... altri dettagli dell'appartamento ... -->
           </div>
