@@ -3,7 +3,7 @@ import { store } from '../store.js';
 import axios from 'axios';
 import HeaderApp from '../components/header/HeaderApp.vue';
 import FooterApp from '../components/footer/FooterApp.vue';
-import SearchCity from '../components/main/homepage/SearchCity.vue';
+import SearchLocation from '../components/main/homepage/SearchLocation.vue';
 import SponsoredApartments from '../components/main/homepage/SponsoredApartments.vue';
 import AboutBoolBnB from '../components/main/homepage/AboutBoolBnB.vue';
 
@@ -11,7 +11,7 @@ export default {
     name: 'HomeApp',
     components: {
         HeaderApp,
-        SearchCity,
+        SearchLocation,
         SponsoredApartments,
         AboutBoolBnB,
         FooterApp,
@@ -66,7 +66,7 @@ export default {
                 </div>
             </div>
             <!-- cerca citta -->
-            <SearchCity />
+            <SearchLocation />
             <!-- appartamenti in evidenza -->
             <SponsoredApartments :apartments="apartments" :getImageUrl="getImageUrl" />
             <!-- about -->

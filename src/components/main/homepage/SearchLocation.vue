@@ -1,7 +1,7 @@
 <script>
 
 export default {
-    name: 'SearchCity',
+    name: 'SearchLocation',
 }
 
 </script>
