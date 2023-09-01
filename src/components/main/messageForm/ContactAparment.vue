@@ -47,7 +47,6 @@ export default {
 <template>
     <div class="row">
         <div class="col">
-            <h2 class="text-center">Contatta l'host</h2>
 
             <form @submit.prevent="SendRequest()" class="col-8 mx-auto">
                 

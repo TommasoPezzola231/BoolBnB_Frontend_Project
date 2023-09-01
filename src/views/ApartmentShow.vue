@@ -79,6 +79,7 @@ export default {
                 </div>
                 <div class="col-6">
                     <!-- form ivio messaggio -->
+                    <h3 class="mx-auto mt-3">Contatta {{ apartment.user.name }} {{ apartment.user.surname }} per l'appartamento</h3>
                     <div class="my_form">
                         <ContactAparment />
                     </div>
@@ -128,7 +129,7 @@ section {
     background-color: red;
 }
 .my_form {
-    margin-top: 400px;
+    margin-bottom: 100px;
     width: 400px;
 }
 
