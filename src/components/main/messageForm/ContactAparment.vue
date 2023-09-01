@@ -28,16 +28,22 @@ export default {
             message_object: this.message_object,
         }
 
-        try {
-        axios.post(this.ApiUrl + "store", data).then((response) => {
-        }).catch((error) => {
+        axios.post(this.ApiUrl + "store", data).then((result) => {
+            console.log(result);
+
             this.loading = false
-            console.log(error);
-        });
-        } catch (error) {
-            this.loading = false
-            console.log(error);
-        }
+            this.name_sender = ""
+            this.surname_sender = ""
+            this.email_sender = ""
+            this.message_object = ""
+            this.message_text = ""
+            alert("Messaggio inviato con successo")
+            
+        }).catch((err) => {
+                console.log(err);
+                this.loading = false
+                alert("Errore nell'invio del messaggio")
+            })
         },
     },
 }
