@@ -45,7 +45,7 @@ export default {
             </div>
             <div class="row">
                 <div class="col-6 mt-2">
-                    <div class="big-img-placeholder">Placeholder principal image</div>
+                    <img class="big-img-placeholder" :src="apartment.principal_image ?  'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
                 </div>
                 <div class="col-6 mt-2">
                     <div class="row">
@@ -66,15 +66,16 @@ export default {
             </div>
             <div class="row">
                 <div class="col-6">
-                    <p class="mt-4">{{ apartment.description }}</p>
+                    <p class="mt-4 py-5 border-top border-bottom">{{ apartment.description }}</p>
+                    <template v-for="service in apartment.services">
+                        <span class="m-2 p-2 service ">
+                            <span class="me-2">{{ service.name_service }}</span>
+                            <font-awesome-icon :icon="service.icon_service" />
+                        </span>
+                    </template>
                 </div>
                 <div class="col-6">
-                    <template v-for="service in apartment.services">
-                        <p class="col m-1 p-1 ">
-                            <span>{{ service.name_service }}</span>
-                            <font-awesome-icon :icon="service.icon_service" />
-                        </p>
-                    </template>
+                    
                 </div>
             </div>
         </div>
@@ -85,6 +86,10 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/main.scss';
 @import '../styles/partials/variables';
+
+*{
+    color: lightgray;
+}
 
 section {
     padding: 2rem;
@@ -115,5 +120,15 @@ section {
     font-size: 15px;
     color: white;
     background-color: red;
+}
+
+.service {
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: lightgray;
+
+    :hover{
+        cursor: pointer;
+    }
 }
 </style>
