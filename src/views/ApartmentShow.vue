@@ -3,12 +3,15 @@
 import axios from 'axios';
 import HeaderApp from '../components/header/HeaderApp.vue'
 import FooterApp from '../components/footer/FooterApp.vue'
+import ContactAparment from '../components/main/messageForm/ContactAparment.vue';
 
 export default {
     name: 'ApartmentShow',
     components: {
         HeaderApp,
+        ContactAparment,
         FooterApp,
+
     },
 
     data() {
@@ -56,11 +59,17 @@ export default {
                         commodi eveniet, maxime doloribus temporibus saepe laboriosam enim rem, molestias ea. Fuga, earum?
                         Minus culpa ipsa ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate
                         impedit illo, aut laudantium, deleniti porro, assumenda quasi cumque explicabo repudiandae at
-                        voluptatibus hic quo fuga tempore. Numquam non ad aut.</p>
+                        voluptatibus hic quo fuga tempore. Numquam non ad aut.
+                    </p>
                 </div>
+                
+
             </div>
         </div>
-
+        <!-- form ivio messaggio -->
+        <div class="my_form">
+            <ContactAparment />
+        </div>
     </section>
 </template>
 
@@ -91,5 +100,10 @@ section {
     background-color: bisque;
     height: 200px;
     border-radius: 20px;
+}
+
+.my_form {
+    margin-top: 400px;
+    width: 400px;
 }
 </style>
