@@ -1,0 +1,86 @@
+<script>
+import axios from 'axios';
+
+export default {
+    name: 'ApartmentShow',
+    
+    data() {
+        return {
+            ApiUrl: "http://localhost:8000/api/messages/",
+            name_sender: "",
+            surname_sender: "",
+            email_sender: "",
+            message_object: "",
+            message_text: "",
+            loading: false
+        };
+    },
+
+    methods: {
+        SendRequest() {
+
+        this.loading = true
+
+        let data = {
+            name_sender: this.name_sender,
+            surname_sender: this.surname_sender,
+            email_sender: this.email_sender,
+            message_object: this.message_object,
+        }
+
+        try {
+        axios.post(this.ApiUrl + "store", data).then((response) => {
+        }).catch((error) => {
+            this.loading = false
+            console.log(error);
+        });
+        } catch (error) {
+            this.loading = false
+            console.log(error);
+        }
+        },
+    },
+}
+
+</script>
+
+<template>
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center">Contatta l'host</h2>
+
+            <form @submit.prevent="SendRequest()" class="col-8 mx-auto">
+                
+                <div class="mb-3">
+                    <label for="name_sender" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="name_sender" v-model="name_sender">
+                </div>
+
+                <div class="mb-3">
+                    <label for="surname_sender" class="form-label">Cognome</label>
+                    <input type="text" class="form-control" id="surname_sender" v-model="surname_sender">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email_sender" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email_sender" v-model="email_sender">
+                </div>
+
+                <div class="mb-3">
+                    <label for="message_object" class="form-label">Oggetto</label>
+                    <input type="text" class="form-control" id="message_object" v-model="message_object">
+                </div>
+
+                <div class="mb-3">
+                    <label for="message_text" class="form-label">Messaggio</label>
+                    <textarea class="form-control" name="message_text" id="message_text" v-model="message_text"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mb-3" :disabled="loading"> {{ loading ? "Invio in corso.." : "Invia" }}  </button>
+            </form>
+        </div>
+    </div>
+</template>
+
+<script>
+
+</script>
