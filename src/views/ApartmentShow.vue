@@ -81,7 +81,8 @@ export default {
                     <!-- form ivio messaggio -->
                     <h3 class="mx-auto mt-3">Contatta {{ apartment.user.name }} {{ apartment.user.surname }} per l'appartamento</h3>
                     <div class="my_form">
-                        <ContactAparment />
+                        <!-- <ContactAparment /> -->
+                        <ContactAparment :apartment="apartment" />
                     </div>
                 </div>
             </div>

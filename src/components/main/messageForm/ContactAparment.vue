@@ -3,47 +3,59 @@ import axios from 'axios';
 
 export default {
     name: 'ApartmentShow',
+
+    props: {
+        apartment: {
+            type: Object,
+            required: true
+        }
+    },
     
     data() {
         return {
-            ApiUrl: "http://localhost:8000/api/messages/",
+            ApiUrl: "http://localhost:8000/api/messages/store",
             name_sender: "",
             surname_sender: "",
             email_sender: "",
             message_object: "",
             message_text: "",
-            loading: false
+            apartment_id: [],
+            loading: false,
         };
     },
 
     methods: {
+
         SendRequest() {
 
-        this.loading = true
+            this.loading = true
 
-        let data = {
-            name_sender: this.name_sender,
-            surname_sender: this.surname_sender,
-            email_sender: this.email_sender,
-            message_object: this.message_object,
-        }
+            let data = {
+                name_sender: this.name_sender,
+                surname_sender: this.surname_sender,
+                email_sender: this.email_sender,
+                message_object: this.message_object,
+                message_text: this.message_text,
+                apartment_id: this.apartment.id,
+            }
 
-        axios.post(this.ApiUrl + "store", data).then((result) => {
-            console.log(result);
+            axios.post(this.ApiUrl, data).then((result) => {
+                console.log(result);
 
-            this.loading = false
-            this.name_sender = ""
-            this.surname_sender = ""
-            this.email_sender = ""
-            this.message_object = ""
-            this.message_text = ""
-            alert("Messaggio inviato con successo")
-            
-        }).catch((err) => {
-                console.log(err);
                 this.loading = false
-                alert("Errore nell'invio del messaggio")
-            })
+                this.name_sender = ""
+                this.surname_sender = ""
+                this.email_sender = ""
+                this.message_object = ""
+                this.message_text = ""
+                this.apartment_id = ""
+                alert("Messaggio inviato con successo")
+                
+            }).catch((err) => {
+                    console.log('axios error:',err);
+                    this.loading = false
+                    alert("Errore nell'invio del messaggio")
+                })
         },
     },
 }
@@ -80,6 +92,8 @@ export default {
                     <label for="message_text" class="form-label">Messaggio</label>
                     <textarea class="form-control" name="message_text" id="message_text" v-model="message_text"></textarea>
                 </div>
+
+                <input type="hidden" name="apartment_id" v-model="apartment.id">
                 <button type="submit" class="btn btn-primary mb-3" :disabled="loading"> {{ loading ? "Invio in corso.." : "Invia" }}  </button>
             </form>
         </div>
