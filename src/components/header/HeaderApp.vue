@@ -21,7 +21,11 @@ export default {
           <div class="logo">
             <!--percorso immagine-->
             <img src="/src/assets/logo/Bool BnB_Black.png" class="logo img-fluid" alt="Logo">
-
+          </div>
+          <div>
+            <h1 class="my_title_color_text">{{ title }}</h1>
+          </div>
+        </router-link>
           <!-- xl - lg desktop -->
           <div class="d-flex justify-content-end d-none d-lg-inline">
             <div class="d-flex justify-content-center gap-3">
@@ -67,15 +71,16 @@ export default {
                     </div>
                   </router-link>
                 </li>
-                
               </ul>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
 </template>
+
+
+
 
 <style lang="scss" scoped>
 @import '../../styles/main.scss';
