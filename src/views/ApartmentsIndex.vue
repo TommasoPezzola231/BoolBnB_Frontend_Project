@@ -3,8 +3,8 @@
 import axios from 'axios';
 import HeaderApp from '../components/header/HeaderApp.vue';
 import FooterApp from '../components/footer/FooterApp.vue';
-import SearchPlus from '../components/main/search-apartmetns/SearchPlus.vue';
-import ResultApartments from '../components/main/search-apartmetns/ResultApartments.vue';
+import SearchPlus from '../components/main/search-apartments/SearchPlus.vue';
+import ResultApartments from '../components/main/search-apartments/ResultApartments.vue';
 
 export default {
     name: 'ApartmentsIndex',
