@@ -40,7 +40,7 @@ export default {
     methods: {
        async searchAdvancedApartment() {
             try {
-                const response = await axios.get(`http://localhost:8000/api/apartments/searchPlus`, {
+                const response = await axios.get(`http://localhost:8000/api/ricercaAvanzata`, {
                 params: {
                     city: this.city,
                     radius: this.radius,

@@ -20,7 +20,7 @@ export default {
     methods: {
        async searchApartment(city) {
             try {
-                const response = await axios.get(`http://localhost:8000/api/apartments/search`, {
+                const response = await axios.get(`http://localhost:8000/api/ricerca`, {
                 params: {
                     city: city,
                 },
