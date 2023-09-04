@@ -46,7 +46,7 @@ export default {
 </script>
 
 <template>
-   <section class="d-flex align-items-center min-vh-100-md p-4">
+   <section class="min-vh-100-md p-5">
       <!-- ricerca avanzata -->
       <SearchPlus />
       <!-- risultati apartamenti -->
