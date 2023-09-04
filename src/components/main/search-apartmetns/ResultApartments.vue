@@ -37,6 +37,7 @@ export default {
             </ul>
             <p>Prezzo: {{ apartment.price }}€</p>
             <!-- ... altri dettagli dell'appartamento ... -->
+            <router-link :to="{ name: 'apartment-show', params: { id: apartment.id } }" class="stretched-link"></router-link>
           </div>
         </div>
     </div>
