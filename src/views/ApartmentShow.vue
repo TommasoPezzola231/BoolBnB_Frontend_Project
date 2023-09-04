@@ -9,16 +9,11 @@ import MapSingle from '../components/main/maps/MapSingle.vue';
 export default {
     name: 'ApartmentShow',
 
-    // show the map 
-
-
-
     components: {
         HeaderApp,
         ContactAparment,
         MapSingle,
         FooterApp,
-
     },
 
     data() {
@@ -27,6 +22,7 @@ export default {
             apartment: [],
         };
     },
+
     methods: {
         getProject() {
             axios.get(this.ApiUrl + this.$route.params.id)
@@ -42,6 +38,34 @@ export default {
 
     created() {
         this.getProject();
+    },
+
+    mounted() {
+        axios
+        .get("https://api.ipify.org?format=json")
+        .then((response) => {
+            const ipAddress = response.data.ip;
+            
+            // Include logic to check if the same IP address has viewed the apartment in the last 24 hours
+            axios
+                .post("http://localhost:8000/api/view/store", {
+                    apartment_id: this.apartment.id,
+                    ip_address: ipAddress,
+                })
+                .then((response) => {
+                    if (response.data.success) {
+                        console.log("View has been registered.");
+                    } else {
+                        console.log("Error: " + response.data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error while storing view: " + error);
+                });
+        })
+        .catch((error) => {
+            console.error("Error while fetching IP address: " + error);
+        });
     },
 
 
