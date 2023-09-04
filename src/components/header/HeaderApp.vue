@@ -40,6 +40,13 @@ export default {
                   <h4 class="my_header_color_text">Vai alla ricerca</h4>
                 </div>
               </router-link>
+
+              <!-- login href = localhost:8000/login -->
+              <a href="http://localhost:8000/login" class="align-items-center h100 d-flex text-decoration-none">
+                <div>
+                  <h4 class="my_header_color_text">Accedi</h4>
+                </div>
+              </a>
             </div>
           </div>
           <!-- tablet - mobile  -->
@@ -64,6 +71,7 @@ export default {
                     </div>
                   </router-link>
                 </li>
+                
               </ul>
             </div>
           </div>
