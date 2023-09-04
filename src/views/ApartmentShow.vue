@@ -4,12 +4,19 @@ import axios from 'axios';
 import HeaderApp from '../components/header/HeaderApp.vue'
 import FooterApp from '../components/footer/FooterApp.vue'
 import ContactAparment from '../components/main/messageForm/ContactAparment.vue';
+import MapSingle from '../components/main/maps/MapSingle.vue';
 
 export default {
     name: 'ApartmentShow',
+
+    // show the map 
+
+
+
     components: {
         HeaderApp,
         ContactAparment,
+        MapSingle,
         FooterApp,
 
     },
@@ -17,23 +24,27 @@ export default {
     data() {
         return {
             ApiUrl: "http://localhost:8000/api/apartments/",
-            apartment: []
+            apartment: [],
         };
     },
     methods: {
         getProject() {
-            axios.get(this.ApiUrl + this.$route.params.id).then(result =>{
-                console.log(result.data.apartment)
-                this.apartment = result.data.apartment
-            }).catch(err => {
-                this.$router.push( { name: "not-found" } )
+            axios.get(this.ApiUrl + this.$route.params.id)
+            .then((result) => {
+                this.apartment = result.data.apartment;
             })
+            .catch((error) => {
+                console.error('Error fetching apartment data:', error);
+                this.$router.push({ name: 'not-found' });
+            });
         },
     },
+
     created() {
-        this.getProject()
-        console.log(this.apartment)
-    }
+        this.getProject();
+    },
+
+
 }
 </script>
 
@@ -69,6 +80,9 @@ export default {
             </div>
             <div class="row">
                 <div class="col-6">
+                    <!-- mappa -->
+                    <MapSingle :apartemnt="apartment" />
+                    <!--------------------------------------------->
                     <p class="mt-4 py-5 border-top border-bottom">{{ apartment.description }}</p>
                     <template v-for="service in apartment.services">
                         <span class="m-2 p-2 service ">
