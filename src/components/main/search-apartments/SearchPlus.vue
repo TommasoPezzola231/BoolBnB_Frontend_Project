@@ -8,7 +8,7 @@ export default {
         return {
             store,
             open: false,
-            services: [
+            /*services: [
                 "Wi-Fi",
                 "Piscina",
                 "Palestra",
@@ -27,7 +27,7 @@ export default {
                 "Kit di pronto soccorso",
                 "Animali domestici ammessi",
                 "Camino"
-            ],
+            ],*/
             city: store.city,
             radius: "20",
             num_rooms: "",
@@ -110,9 +110,9 @@ export default {
     
                 <div class="col-3 p-2">
     
-                    <label v-for="(service, index) in services" :key="index + 1" class="dropdown-item">
+                    <label v-for="(service, index) in this.store.services" :key="index + 1" class="dropdown-item">
                         <input type="checkbox" :value="index + 1" v-model="selectedServices" name="serviceID">
-                        {{ service }}
+                        {{ service.name_service }}
                     </label>
                 </div>
     

@@ -17,7 +17,7 @@ export default {
     data () {
         return {
             open: false,
-            services: [
+            /*services: [
                 "Wi-Fi",
                 "Piscina",
                 "Palestra",
@@ -36,7 +36,7 @@ export default {
                 "Kit di pronto soccorso",
                 "Animali domestici ammessi",
                 "Camino"
-            ],
+            ],*/
             selectedServices: [],
         };
     },

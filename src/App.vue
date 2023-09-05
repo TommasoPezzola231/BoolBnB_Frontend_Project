@@ -18,6 +18,21 @@ export default {
       store,
     }
   },
+
+  methods: {
+      getServices() {
+          axios.get('http://localhost:8000/api/allServices')
+          .then((result) => {
+              this.store.services = result.data.services;
+              console.log(this.store.services)
+          })
+      },
+  },
+
+  mounted () {
+    this.getServices()
+    },
+
 }
 
 </script>
