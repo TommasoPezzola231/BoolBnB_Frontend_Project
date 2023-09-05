@@ -4,30 +4,11 @@ import { store } from "../../../store"
 
 export default {
     name: 'SearchPlus',
+
     data() {
         return {
             store,
             open: false,
-            /*services: [
-                "Wi-Fi",
-                "Piscina",
-                "Palestra",
-                "Sauna",
-                "Vista Mare",
-                "Posto Auto",
-                "Aria Condizionata",
-                "Riscaldamento",
-                "colazione",
-                "TV",
-                "Cucina",
-                "Lavatrice",
-                "Ferro da stiro",
-                "Asciugacapelli",
-                "Fumo permesso",
-                "Kit di pronto soccorso",
-                "Animali domestici ammessi",
-                "Camino"
-            ],*/
             city: store.city,
             radius: "20",
             num_rooms: "",
@@ -35,11 +16,37 @@ export default {
             square_meters: "",
             price: "",
             selectedServices: [],
+            loading: false,
         };
     },
+
+    computed: {
+        watchFields: function() {
+            return [
+                this.city,
+                this.radius,
+                this.num_rooms,
+                this.num_bathrooms,
+                this.square_meters,
+                this.price,
+                this.selectedServices,
+            ];
+        },
+    },
+
+    watch: {
+        watchFields: {
+            handler: function() {
+                this.searchAdvancedApartment();
+            },
+            deep: true,
+        },
+    },
+
     methods: {
        async searchAdvancedApartment() {
             try {
+                this.loading = true; // Show loading indicator
                 const response = await axios.get(`http://localhost:8000/api/ricercaAvanzata`, {
                 params: {
                     city: this.city,
@@ -50,18 +57,15 @@ export default {
                     price: this.price,
                     serviceID: this.selectedServices,
                 },
-                });
-                console.log(this.selectedServices)
-                console.log(response)
-                // Chiamata alla mutazione per salvare i risultati nello store
-                this.store.apartments = response.data;
-                console.log(this.store.apartments);
+            });
 
+            this.store.apartments = response.data;
             } catch (error) {
                 console.error('Errore durante la ricerca:', error);
+            } finally {
+                this.loading = false; 
             }
-    
-        }
+        },
     }
 }
 </script>
