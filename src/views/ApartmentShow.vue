@@ -46,7 +46,6 @@ export default {
         .then((response) => {
             const ipAddress = response.data.ip;
             
-            // Include logic to check if the same IP address has viewed the apartment in the last 24 hours
             axios
                 .post("http://localhost:8000/api/view/store", {
                     apartment_id: this.apartment.id,
