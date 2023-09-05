@@ -1,13 +1,9 @@
 <script>
 import { store } from '../../../store.js';
 import axios from 'axios';
-import MapNormal from '../maps/MapNormal.vue';
 
 export default {
     name: 'SearchLocation',
-    components: {
-        MapNormal
-    },
 
     data() {
         return {
@@ -39,12 +35,6 @@ export default {
     
         }
     },
-
-    startMapNormal() {
-        setTimeout(() => {
-            this.$refs.mapNormal.getMap();
-        }, 2000);
-    },
 }
 
 </script>
@@ -68,11 +58,6 @@ export default {
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3 d-flex">
-                <!-- mappa -->
-                <MapNormal ref="mapNormal" :lat="41.902782" :lon="12.496366" :TOMTOM_API_KEY="store.TOMTOM_API_KEY" :apartments="apartments" class="rounded"/>
-                <!-- <img src="https://www.ncgtp.com/NCGTP_Map_Images/map-main-placeholder.jpg" class="img-fluid rounded" alt="Responsive image"> -->
             </div>
         </div>
     </section>
