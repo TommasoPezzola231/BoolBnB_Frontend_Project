@@ -105,33 +105,43 @@ export default {
 
 
 
+
 .my_title_color_text {
-  color: $color-text-primary;
+  font-weight: bold;
+  background: #E7C2E5;
+  background: linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
   &:hover {
-    color: blue;
+    // color: $bg-light-pink;
     transform: scale(1.2);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
   }
+
+
 }
 
 .my_header_color_text {
-  color: $color-text-primary;
+  color: $headerLinks;
 
   &:hover {
-    color: blue;
+    color: $bg-light-pink;
     transform: scale(1.2);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
   }
+
+
 }
 
 .account {
   height: 50px;
   width: 50px;
+  border: 1px solid $headerLinks;
   border-radius: 50%;
 }
 

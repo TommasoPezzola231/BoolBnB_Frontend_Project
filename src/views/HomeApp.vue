@@ -55,10 +55,11 @@ export default {
     <section class=" bg d-flex align-items-center min-vh-100-md p-5">
         <div class="container-fluid">
             <!-- benvenuto -->
-            <div class="row">
+            <div class="row title mt-5">
                 <div class="col-12 text-center">
                     <h1>Benvenuto su {{ title }}</h1>
                     <p class="lead text-black">Trova un appartamento per le tue vacanze o per un soggiorno di lavoro</p>
+                    <hr class="border border-bottom">
                 </div>
             </div>
             <!-- cerca citta -->
@@ -80,5 +81,16 @@ export default {
 .bg {
     background-color: #4158D0;
     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.title h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 1px 4px 2px #ebc3f1;
+
+}
+
+.title p {
+    font-size: 2.5rem;
 }
 </style>
