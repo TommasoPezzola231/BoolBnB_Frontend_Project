@@ -78,10 +78,10 @@ export default {
 @import '../styles/main.scss';
 @import '../styles/partials/_variables.scss';
 
-.bg {
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-}
+// .bg {
+//     background-color: #4158D0;
+//     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+// }
 
 .title h1 {
     font-size: 4rem;
