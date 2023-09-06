@@ -36,13 +36,13 @@ export default {
 
         getProjects() {
             axios.get(`${this.store.baseUrl}${this.store.apiEndpoint}/apartments`)
-            .then(result => {
-            this.apartments = result.data.apartments;
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        },   
+                .then(result => {
+                    this.apartments = result.data.apartments;
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        },
     },
 
     mounted() {
@@ -52,13 +52,13 @@ export default {
 </script>
 
 <template>
-    <section class="d-flex align-items-center min-vh-100-md p-5">
+    <section class=" bg d-flex align-items-center min-vh-100-md p-5">
         <div class="container-fluid">
             <!-- benvenuto -->
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 text-center">
                     <h1>Benvenuto su {{ title }}</h1>
-                    <p class="lead text-white">Trova un appartamento per le tue vacanze o per un soggiorno di lavoro</p>
+                    <p class="lead text-black">Trova un appartamento per le tue vacanze o per un soggiorno di lavoro</p>
                 </div>
             </div>
             <!-- cerca citta -->
@@ -76,4 +76,9 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/main.scss';
 @import '../styles/partials/_variables.scss';
+
+.bg {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
 </style>

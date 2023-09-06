@@ -19,4 +19,29 @@ export const store = reactive({
     services: [],
     // key tom tom 
     TOMTOM_API_KEY:'nkr5gnmh40fpVDC8AD8yeyHG6DnNrhZT',
+
+    imageArray:[
+        {
+            "image": "Appartamento-elegante.jpg"
+        },
+        {
+            "image": "Appartamento.jpg"
+        },
+        {
+            "image": "Camera-da-lettojpg"
+        },
+        {
+            "image": "Campagna.jpg"
+        },
+        {
+            "image": "casa sul mare.jpg"
+        },
+        {
+            "image": "Casa-in-montagna.jpg"
+        },
+        {
+            "image": "Mare.jpg"
+        },
+        
+    ]
 });

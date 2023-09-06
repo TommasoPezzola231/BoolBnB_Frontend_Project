@@ -2,6 +2,7 @@
 import { store } from '../../../store.js';
 import axios from 'axios';
 
+
 export default {
     name: 'SearchLocation',
 
@@ -14,25 +15,25 @@ export default {
     },
 
     methods: {
-       async searchApartment(city) {
+        async searchApartment(city) {
             try {
                 const response = await axios.get(`http://localhost:8000/api/ricerca`, {
-                params: {
-                    city: city,
-                },
+                    params: {
+                        city: city,
+                    },
                 });
                 console.log(response)
                 // Chiamata alla mutazione per salvare i risultati nello store
                 this.store.apartments = response.data;
                 this.store.city = city,
-                console.log(this.store.apartments),
+                    console.log(this.store.apartments),
 
-                // Reindirizzamento
-                this.$router.push({ name: 'apartments-index' });
+                    // Reindirizzamento
+                    this.$router.push({ name: 'apartments-index' });
             } catch (error) {
                 console.error('Errore durante la ricerca:', error);
             }
-    
+
         }
     },
 }
@@ -41,11 +42,11 @@ export default {
 
 <template>
     <!-- cerca citta -->
-    <section class="mt-5">
+    <section class=" jumbo mt-5 py-5 ">
         <div class="row d-flex">
-            <div class="col-12 col-md-6 col-lg-5  col-xl-4 mb-3 h-100">
-                <div class="p-5 mb-4 text-light rounded-3 my_bg-jumbo">
-                    <div class="py-5">
+            <div class=" form col-6 col-md-6 col-lg-5  col-xl-4 mb-3 h-100">
+                <div class=" p-4 m-4 text-light rounded-5 my_bg-jumbo">
+                    <div class="">
                         <h1 class="display-5 fw-bold">Cerca il tuo prossimo soggiorno</h1>
                         <p class="col-md-8 fs-4 mt-3">Inserisci il nome della città</p>
                         <form @submit.prevent="searchApartment($event.target.city.value)">
@@ -59,12 +60,14 @@ export default {
                     </div>
                 </div>
             </div>
+            <div class="col-6 d-flex justify-content-start">
+                <img src="/src/assets/img/Appartamento-elegante.jpg" class="lounge" alt="">
+            </div>
         </div>
     </section>
 </template>
 
 <style lang="scss" scoped>
-
 .my_bg-jumbo {
     background-color: $bg-color-dark;
 
@@ -80,5 +83,22 @@ export default {
             border: none;
         }
     }
+}
+
+.lounge {
+    position: relative;
+    width: 900px;
+    height: 500px;
+    border-radius: 40px;
+    z-index: 1;
+    margin-left: 350px;
+}
+
+.form {
+    position: absolute;
+    margin-left: 180px;
+    z-index: 2;
+    height: 200px;
+    width: 400px;
 }
 </style>

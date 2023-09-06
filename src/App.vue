@@ -13,33 +13,32 @@ export default {
     FooterApp,
   },
 
-  data () {
+  data() {
     return {
       store,
     }
   },
 
   methods: {
-      getServices() {
-          axios.get('http://localhost:8000/api/allServices')
-          .then((result) => {
-              this.store.services = result.data.services;
-              console.log(this.store.services)
-          })
-      },
+    getServices() {
+      axios.get('http://localhost:8000/api/allServices')
+        .then((result) => {
+          this.store.services = result.data.services;
+          console.log(this.store.services)
+        })
+    },
   },
 
-  mounted () {
+  mounted() {
     this.getServices()
-    },
+  },
 
 }
 
 </script>
 
 <template>
-
-  <header class="px-2">
+  <header>
     <HeaderApp />
   </header>
 
@@ -47,10 +46,9 @@ export default {
     <router-view></router-view>
   </main>
 
-  <footer class="px-2">
+  <footer>
     <FooterApp />
   </footer>
-  
 </template>
 
 <style lang="scss" scoped>
@@ -58,7 +56,7 @@ export default {
 
 header {
   height: 5rem;
-  background-color: $color-primary;
+  background-color: $color-white;
   width: 100%;
   position: fixed;
   top: 0;
@@ -70,12 +68,12 @@ main {
   margin-top: 5rem;
   margin-bottom: 5rem;
   min-height: calc(100vh - 10rem);
-  background-color: $color-black;
+  background-color: $color-white;
 }
 
 footer {
   height: 5rem;
-  background-color: $color-primary;
+  background-color: $color-white;
   width: 100%;
   position: fixed;
   bottom: 0;
