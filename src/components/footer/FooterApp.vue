@@ -24,9 +24,9 @@ export default {
         <div class="col-12">
           <!-- <hr class="border border-dark border-1"> -->
           <div class="d-flex justify-content-between align-items-center justify-content-center ">
-            <img src="/src/assets/logo/Bool BnB_Black.png" class="logo " alt="">
-            <div class="">{{ title }}</div>
-            <div class="my_nav_link col-6 d-flex gap-2 justify-content-center">
+            <a href="" class="mt-4"><img src="/src/assets/logo/Bool BnB_Black.png" class="logo " alt=""></a>
+            <a href="" class="title mt-4"> &#169; {{ title }}</a>
+            <div class="my_nav_link col-6 d-flex gap-3 mt-4 justify-content-center">
               <router-link to="/about">About</router-link>
               <router-link to="/contact">Contact</router-link>
               <router-link to="/privacy">Privacy</router-link>
@@ -34,17 +34,17 @@ export default {
             </div>
 
             <span class=" col-4 d-flex flex-wrap gap-2 justify-content-center">
-              <div>Realizzato da</div>
+              <div class="credits mt-4">Realizzato da</div>
               <span>
-                <font-awesome-icon :icon="['fab', 'github']" />
+                <font-awesome-icon class="mt-4" :icon="['fab', 'github']" />
               </span>
-              <a class="text-decoration-none text-black" href="https://github.com/MarikaDiGirolamo" target="_blank"
+              <a class="text-decoration-none mt-4" href="https://github.com/MarikaDiGirolamo" target="_blank"
                 rel="noopener noreferrer">Marika</a>
-              <a class="text-decoration-none text-black" href="https://github.com/valeriobilli" target="_blank"
+              <a class="text-decoration-none mt-4" href="https://github.com/valeriobilli" target="_blank"
                 rel="noopener noreferrer">Valerio</a>
-              <a class="text-decoration-none text-black" href="https://github.com/TommasoPezzola231" target="_blank"
+              <a class="text-decoration-none mt-4" href="https://github.com/TommasoPezzola231" target="_blank"
                 rel="noopener noreferrer">Tommaso</a>
-              <a class="text-decoration-none text-black" href="https://github.com/LorenzoSeverini" target="_blank"
+              <a class="text-decoration-none mt-4" href="https://github.com/LorenzoSeverini" target="_blank"
                 rel="noopener noreferrer">Lorenzo</a>
             </span>
           </div>
@@ -55,23 +55,26 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import '../../styles/main.scss';
+
+.container-fluid {
+  -webkit-box-shadow: 0px -4px 10px -5px #000000;
+  box-shadow: 0px -4px 10px -5px #000000;
+
+  @include linkFooter;
+
+}
+
 .logo {
   height: 50px;
   width: 50px;
+  margin-top: -10px;
+
 }
 
-.my_nav_link {
-  background-color: transparent;
-
-  a {
-    color: black;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      color: $color-primary;
-      text-decoration: none;
-    }
-  }
+.credits {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $color-lavander;
 }
 </style>
