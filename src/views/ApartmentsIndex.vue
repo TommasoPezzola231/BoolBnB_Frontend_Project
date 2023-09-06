@@ -46,7 +46,7 @@ export default {
 </script>
 
 <template>
-   <section class="min-vh-100-md p-5">
+   <section>
       <!-- ricerca avanzata -->
       <SearchPlus />
       <!-- risultati apartamenti -->
@@ -57,9 +57,6 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/main.scss';
 
-section {
-    padding: 2rem;
-    // giusto per staccare dai bordi
-}
+
 
 </style>
