@@ -19,11 +19,12 @@ export default {
 
 <template>
   <!-- header using bootstrap  -->
-  <div class=" navi container-fluid h-100">
+  <div class="container-fluid">
     <div class="row h-100">
-      <div class="col d-flex justify-content-center justify-content-between align-items-center h-100">
+      <div
+        class=" navi col d-flex justify-content-center justify-content-between align-items-center justify-content-between">
         <router-link :to="{ name: 'home' }" class="align-items-center h-100 d-flex text-decoration-none gap-2">
-          <div class="logo align-items-center h100 d-flex">
+          <div class="logo align-items-center h-100 d-flex">
             <!--percorso immagine-->
             <a href=""><img src="/src/assets/logo/Bool BnB_Black.png" class="logo img-fluid" alt="Logo"></a>
           </div>
@@ -42,7 +43,7 @@ export default {
 
             <router-link :to="{ name: 'apartments-index' }" class="align-items-center h100 d-flex text-decoration-none">
               <div>
-                <h4 class="my_header_color_text">Vai alla ricerca</h4>
+                <h4 class="my_header_color_text">Ricerca</h4>
               </div>
             </router-link>
 
@@ -59,7 +60,7 @@ export default {
               <div>
                 <h4 class="my_header_color_text">Accedi</h4>
               </div>
-              <div class="account align-items-center h100 d-flex">
+              <div class="account align-items-center h-100 d-flex">
                 <a href=""><img src="/src/assets/img/account-icon.jpg" class="account"></a>
               </div>
             </a>
@@ -105,7 +106,6 @@ export default {
 
 
 
-
 .my_title_color_text {
   font-weight: bold;
   background: #E7C2E5;
@@ -118,10 +118,7 @@ export default {
     transform: scale(1.2);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-
   }
-
-
 }
 
 .my_header_color_text {
@@ -132,17 +129,20 @@ export default {
     transform: scale(1.2);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-
   }
+}
 
-
+.logo {
+  height: 100px;
+  width: 100px;
+  margin-top: -7px;
 }
 
 .account {
   height: 50px;
   width: 50px;
-  border: 1px solid $headerLinks;
   border-radius: 50%;
+  margin-top: -7px;
 }
 
 .my_btn_dropdown {

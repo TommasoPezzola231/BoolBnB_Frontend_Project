@@ -52,16 +52,16 @@ export default {
 </script>
 
 <template>
-    <section class=" bg d-flex align-items-center min-vh-100-md p-5">
+    <section class=" bg d-flex align-items-center min-vh-100-md">
         <div class="container-fluid">
             <!-- benvenuto -->
-            <div class="row title mt-5">
+            <!--<div class="row title mt-5">
                 <div class="col-12 text-center">
                     <h1>Benvenuto su {{ title }}</h1>
                     <p class="lead text-black">Trova un appartamento per le tue vacanze o per un soggiorno di lavoro</p>
                     <hr class="border border-bottom">
                 </div>
-            </div>
+            </div>-->
             <!-- cerca citta -->
             <SearchLocation />
             <!-- appartamenti in evidenza -->
