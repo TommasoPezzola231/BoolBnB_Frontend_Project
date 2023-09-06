@@ -34,6 +34,12 @@ import { faKitMedical } from "@fortawesome/free-solid-svg-icons";
 import { faDog } from "@fortawesome/free-solid-svg-icons";
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { faWater } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faToilet } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faRulerCombined } from "@fortawesome/free-solid-svg-icons";
+import { faEuroSign } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 
 library.add(faGithub);
@@ -56,6 +62,12 @@ library.add(faKitMedical);
 library.add(faDog);
 library.add(faFire);
 library.add(faWater);
+library.add(faXmark);
+library.add(faToilet);
+library.add(faHouse);
+library.add(faRulerCombined);
+library.add(faEuroSign);
+library.add(faLocationDot);
 
 
 
