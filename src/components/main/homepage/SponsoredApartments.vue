@@ -31,8 +31,10 @@ export default {
 <template>
     <section class="mt-5 text-center align-items-center d-flex">
         <div class=" row">
-            <div class="col-12 my-3">
+            <div class="col-12 my-5">
                 <h2>Appartamenti in evidenza</h2>
+
+
                 <div class="row row-cols-1 row-cols-md-2 g-4 my-5 justify-content-center">
                     <template v-if="imagesLoaded">
                         <!-- Show actual content -->
@@ -88,12 +90,31 @@ export default {
     }
 }
 
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: $color-lavander;
+
+    // text-shadow: 1px 4px 2px #ebc3f1;
+    &:after {
+        content: ' ';
+        display: block;
+        border: 1px solid $color-lavander;
+        width: 35%;
+        border-radius: 4px;
+        margin: 1rem 0 0 485px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    }
+}
+
 // placeholder card
 .placeholder-card {
     background-color: rgb(171, 173, 173);
     animation: placeholderShimmer 1s linear infinite forwards;
-
-
 
     .placeholder-image {
         width: 100%;

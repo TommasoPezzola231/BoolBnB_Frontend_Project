@@ -42,18 +42,18 @@ export default {
 
 <template>
     <!-- cerca citta -->
-    <section class=" jumbo mt-5 py-5">
+    <section class=" jumbo mt-4">
         <div class="row d-flex">
             <div class=" form col-6 col-md-6 col-lg-5  col-xl-4 mb-3 h-100">
                 <div class=" form-body p-4 m-4 text-light rounded-5 my_bg-jumbo">
-                    <div class="">
-                        <h1 class="display-5 fw-bold">Cerca il tuo prossimo soggiorno</h1>
-                        <p class="col-md-8 fs-4 mt-3 mx-5">Inserisci il nome della città</p>
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <h1 class="display-5 fw-bold text-black">Cerca il tuo prossimo soggiorno</h1>
+                        <p class="col-md-8 fs-4 mt-3">Inserisci il nome della città</p>
                         <form @submit.prevent="searchApartment($event.target.city.value)">
-                            <div class="InputContainer form-floating mb-3 col-md-8 col-lg-5 mx-5">
-                                <input placeholder="Inserisci la città..." id="input" class="input " name="text"
-                                    type="text">
-                                <label name="city" class="text-dark" for="floatingInput"></label>
+                            <div class="InputContainer form-floating mb-3 col-md-8 col-lg-5">
+                                <input placeholder="Inserisci la città..." type="text" class="form-control input" id="city"
+                                    name="city">
+                                <label name="city" class="text-dark" for="floatingInput">Inserisci la città...</label>
                             </div>
                             <!-- bottone cerca -->
                             <input type="submit" value="Cerca" class="btn btn-lg">
@@ -69,6 +69,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/main.scss';
+
 .my_bg-jumbo {
     background-color: $bg-color-dark;
 
@@ -79,8 +81,7 @@ export default {
         color: lightslategray;
         border: 1px solid $headerLinks;
         border-radius: 10px;
-        margin: 0.5rem;
-        background: transparent;
+        margin: 1rem;
 
 
         &:hover {
@@ -117,15 +118,18 @@ export default {
     z-index: 2;
     height: 200px;
     width: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
+
+    @include flex(center, center, center); // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // text-align: center;
 
 
     .form-body {
 
         background-color: $bg-color-light;
+        border: 2px solid $bg-light-pink;
 
         h1 {
             font-size: 2.2rem;
@@ -137,32 +141,30 @@ export default {
             color: lightslategray;
         }
     }
-}
 
-.InputContainer {
-    width: 210px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom, rgb(227, 213, 255), rgb(255, 231, 231));
-    border-radius: 30px;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
-}
+    .InputContainer {
+        width: 210px;
+        height: 50px;
+        // background: linear-gradient(to bottom, rgb(227, 213, 255), rgb(255, 231, 231));
+        border-radius: 30px;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+        @include flex(center, center, center);
+    }
 
-.input {
-    width: 200px;
-    height: 40px;
-    border: none;
-    outline: none;
-    caret-color: rgb(255, 81, 0);
-    background-color: rgb(255, 255, 255);
-    border-radius: 30px;
-    padding-left: 15px;
-    letter-spacing: 0.8px;
-    color: rgb(19, 19, 19);
-    font-size: 13.4px;
+    .input {
+        width: 200px;
+        height: 40px;
+        border: none;
+        outline: none;
+        // caret-color: rgb(255, 81, 0);
+        // background-color: rgb(255, 255, 255);
+        border-radius: 30px;
+        padding-left: 15px;
+        letter-spacing: 0.8px;
+        color: rgb(19, 19, 19);
+        font-size: 13.4px;
+    }
 }
 </style>

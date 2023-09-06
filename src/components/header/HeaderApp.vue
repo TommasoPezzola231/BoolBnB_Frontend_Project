@@ -104,7 +104,9 @@ export default {
 <style lang="scss" scoped>
 @import '../../styles/main.scss';
 
-
+.container-fluid {
+  box-shadow: 0px 4px 10px -5px #000000;
+}
 
 .my_title_color_text {
   font-weight: bold;
@@ -122,10 +124,10 @@ export default {
 }
 
 .my_header_color_text {
-  color: $headerLinks;
+  color: $color-lavander;
 
   &:hover {
-    color: $bg-light-pink;
+    color: $headerLinks;
     transform: scale(1.2);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
