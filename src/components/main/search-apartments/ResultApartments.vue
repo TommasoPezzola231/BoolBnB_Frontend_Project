@@ -12,9 +12,6 @@ export default {
         };
     },
 
-    methods: {
-    },
-
     watch: {
         'store.apartments': {
             immediate: true,
@@ -31,7 +28,10 @@ export default {
 
 
     <div class="row mb-4 w-100 mx-auto">
-        <h2 v-if="store.apartments.length > 0" class="text-center mt-1">Risultati ricerca</h2>
+        <button type="button" class="btn btnCustom" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Ricerca Avanzata
+        </button>
+        <h2 class="text-center">Risultati ricerca</h2>
 
         <!-- Show loading spinner when loading is true -->
         <div v-if="loading" class="spinner-border text-primary" role="status">
@@ -40,7 +40,7 @@ export default {
 
         <div v-else>
             <div v-if="store.apartments.length === 0">
-                <p class="fs-1 text-center">Nessun appartamento trovato</p>
+                <p class="position-absolute top-50 start-50 translate-middle fs-1">Nessun appartamento trovato</p>
             </div>
 
             <div v-else class="row p-2">
@@ -87,6 +87,16 @@ export default {
 .prova{
     background-color: #4158D0;
     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.btnCustom{    
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    color: white;
+    &:hover{
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        background-color: #3a4fba;
+    }
 }
 
 a{
