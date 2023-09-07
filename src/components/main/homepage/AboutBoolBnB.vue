@@ -13,7 +13,7 @@ export default {
 
 <template>
   <section class="mt-5">
-    <h2 class="mb-5 text-center">About BoolBnB</h2>
+    <h2 class="mb-5 text-center" id="about">About BoolBnB</h2>
     <div class="container pt-4">
       <div class="row">
         <div class="col-lg-6 mb-3 mt-4">

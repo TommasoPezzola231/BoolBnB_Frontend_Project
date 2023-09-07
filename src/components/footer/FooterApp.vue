@@ -19,22 +19,22 @@ export default {
 
 <template>
   <section>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
+    <div class="container-fluid h-100">
+      <div class="row h-100">
+        <div class="col-12 h-100">
           <!-- <hr class="border border-dark border-1"> -->
           <div class="d-flex justify-content-between align-items-center justify-content-center ">
             <a href="" class="mt-4"><img src="/src/assets/logo/Bool BnB_Black.png" class="logo " alt=""></a>
-            <a href="" class="title mt-4"> &#169; {{ title }}</a>
-            <div class="my_nav_link col-6 d-flex gap-3 mt-4 justify-content-center">
-              <router-link to="/about">About</router-link>
-              <router-link to="/contact">Contact</router-link>
-              <router-link to="/privacy">Privacy</router-link>
-              <router-link to="/terms">Terms</router-link>
+            <a href="" class="title mt-4"> &#169;2023 {{ title }}</a>
+            <div class="my_nav_link col-4 d-flex gap-3 mt-4 justify-content-center">
+              <a href=""><router-link to="/about">About</router-link></a>
+              <a href=""><router-link to="/contact">Contact</router-link></a>
+              <a href=""><router-link to="/privacy">Privacy</router-link></a>
+              <a href=""><router-link to="/terms">Terms</router-link></a>
             </div>
 
             <span class=" col-4 d-flex flex-wrap gap-2 justify-content-center">
-              <div class="credits mt-4">Realizzato da</div>
+              <div class="team mt-4" id="">Realizzato da</div>
               <span>
                 <font-awesome-icon class="mt-4" :icon="['fab', 'github']" />
               </span>
@@ -72,9 +72,17 @@ export default {
 
 }
 
-.credits {
-  font-size: 1.2rem;
-  font-weight: bold;
+.title {
+  margin-left: -30px;
+}
+
+.my_nav_link {
+  margin-left: 250px;
+}
+
+.team {
+  font-size: 1rem;
+  margin-left: 100px;
   color: $color-lavander;
 }
 </style>

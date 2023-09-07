@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 .my_nav_link {
-    background-color: transparent;
+    // background-color: transparent;
 
     a {
         color: black;

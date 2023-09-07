@@ -26,13 +26,13 @@ export default {
     methods: {
         getProject() {
             axios.get(this.ApiUrl + this.$route.params.id)
-            .then((result) => {
-                this.apartment = result.data.apartment;
-            })
-            .catch((error) => {
-                console.error('Error fetching apartment data:', error);
-                this.$router.push({ name: 'not-found' });
-            });
+                .then((result) => {
+                    this.apartment = result.data.apartment;
+                })
+                .catch((error) => {
+                    console.error('Error fetching apartment data:', error);
+                    this.$router.push({ name: 'not-found' });
+                });
         },
     },
 
@@ -42,29 +42,29 @@ export default {
 
     mounted() {
         axios
-        .get("https://api.ipify.org?format=json")
-        .then((response) => {
-            const ipAddress = response.data.ip;
-            
-            axios
-                .post("http://localhost:8000/api/view/store", {
-                    apartment_id: this.apartment.id,
-                    ip_address: ipAddress,
-                })
-                .then((response) => {
-                    if (response.data.success) {
-                        console.log("View has been registered.");
-                    } else {
-                        console.log("Error: " + response.data.message);
-                    }
-                })
-                .catch((error) => {
-                    console.error("Error while storing view: " + error);
-                });
-        })
-        .catch((error) => {
-            console.error("Error while fetching IP address: " + error);
-        });
+            .get("https://api.ipify.org?format=json")
+            .then((response) => {
+                const ipAddress = response.data.ip;
+
+                axios
+                    .post("http://localhost:8000/api/view/store", {
+                        apartment_id: this.apartment.id,
+                        ip_address: ipAddress,
+                    })
+                    .then((response) => {
+                        if (response.data.success) {
+                            console.log("View has been registered.");
+                        } else {
+                            console.log("Error: " + response.data.message);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error while storing view: " + error);
+                    });
+            })
+            .catch((error) => {
+                console.error("Error while fetching IP address: " + error);
+            });
     },
 
 
@@ -73,16 +73,19 @@ export default {
 
 <template>
     <section>
-        <div class="container-fluid container-img">
+        <div class="container container-img">
             <div class="row">
                 <div class="col">
                     <h1>{{ apartment.title }}</h1>
-                    <div class="d-flex">{{ apartment.address }}</div>
+                    <div class="d-flex">
+                        <p>{{ apartment.address }}</p>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 mt-2">
-                    <img class="big-img-placeholder" :src="apartment.principal_image ?  'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
+                    <img class="big-img-placeholder"
+                        :src="apartment.principal_image ? 'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
                 </div>
                 <div class="col-6 mt-2">
                     <div class="row">
@@ -104,10 +107,10 @@ export default {
             <div class="row">
                 <div class="col-6">
                     <!-- mappa -->
-                    <MapSingle :apartemnt="apartment" />
+                    <MapSingle :apartemnt="apartment" class="map" />
                     <!--------------------------------------------->
                     <p class="mt-4 py-5 border-top border-bottom">{{ apartment.description }}</p>
-                    <template v-for="service in apartment.services">
+                    <template v-for="service in apartment.services" :key="service">
                         <span class="m-2 p-2 service ">
                             <span class="me-2">{{ service.name_service }}</span>
                             <font-awesome-icon :icon="service.icon_service" />
@@ -116,7 +119,8 @@ export default {
                 </div>
                 <div class="col-6">
                     <!-- form ivio messaggio -->
-                    <h3 class="mx-auto mt-3">Contatta {{ apartment.user.name }} {{ apartment.user.surname }} per l'appartamento</h3>
+                    <h3 class="mx-5 mt-4">Contatta {{ apartment.user.name }} {{ apartment.user.surname }} per
+                        l'appartamento</h3>
                     <div class="my_form">
                         <!-- <ContactAparment /> -->
                         <ContactAparment :apartment="apartment" />
@@ -124,7 +128,7 @@ export default {
                 </div>
             </div>
         </div>
-        
+
     </section>
 </template>
 
@@ -132,8 +136,13 @@ export default {
 @import '../styles/main.scss';
 @import '../styles/partials/variables';
 
-*{
-    color: lightgray;
+h1 {
+    color: $color-black;
+}
+
+p {
+    font-size: 1.2rem;
+    color: gray;
 }
 
 section {
@@ -145,12 +154,15 @@ section {
 
 .container-img {
     height: 400px;
+
+
+
 }
 
 .big-img-placeholder {
     width: 100%;
     background-color: bisque;
-    height: 400px;
+    height: 415px;
     border-radius: 20px;
 }
 
@@ -159,6 +171,7 @@ section {
     background-color: bisque;
     height: 200px;
     border-radius: 20px;
+    margin-bottom: 1rem;
 }
 
 .fa-solid {
@@ -166,6 +179,13 @@ section {
     color: white;
     background-color: red;
 }
+
+.map {
+    height: 300px;
+    width: 635px;
+
+}
+
 .my_form {
     margin-bottom: 100px;
     width: 400px;
@@ -175,8 +195,10 @@ section {
     border: 1px solid gray;
     border-radius: 10px;
     color: lightgray;
+    flex-wrap: wrap;
+    @include flex;
 
-    :hover{
+    &:hover {
         cursor: pointer;
     }
 }
