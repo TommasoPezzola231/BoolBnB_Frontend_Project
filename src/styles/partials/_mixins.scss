@@ -11,11 +11,23 @@
     text-align: $text;
 }
 
+@mixin title{
+    font-weight: bold;
+    background: #E7C2E5;
+    background: -webkit-linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
+    background: -moz-linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
+    background: linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    // text-shadow: 1px 2px 0px #DEDEDE;
+}
+
+
 @mixin linkFooter{ //hover
     a {
         // justify-content: space-between;
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-size: 1rem;
+        // font-weight: bold;
         color: $color-lavander;
         text-decoration: none;
         transition: all 0.3s ease-in-out;
@@ -28,15 +40,4 @@
           transition: 0.3s;
         }
       }
-}
-
-@mixin title{
-    font-weight: bold;
-    background: #E7C2E5;
-    background: -webkit-linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
-    background: -moz-linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
-    background: linear-gradient(to left, #E7C2E5 0%, #F802E4 55%, #7A02FA 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 1px 2px 0px #DEDEDE;
 }
