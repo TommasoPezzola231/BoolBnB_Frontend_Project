@@ -122,11 +122,11 @@ export default {
 }
 
 .my_header_color_text {
-  color: $color-lavander;
+  color: $color-black;
   text-decoration: none;
 
   &:hover {
-    color: $headerLinks;
+    color: $color-primary;
     transform: scale(1.2);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -147,7 +147,7 @@ export default {
 }
 
 .my_btn_dropdown {
-  background-color: $color-secondary;
+  background-color: $color-primary;
   border-color: $color-black;
   width: 100%;
   height: 1.875rem;

@@ -86,7 +86,7 @@ export default {
 .title h1 {
     font-size: 4rem;
     font-weight: bold;
-    text-shadow: 1px 4px 2px #ebc3f1;
+    color: $color-primary;
 
 }
 

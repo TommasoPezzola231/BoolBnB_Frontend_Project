@@ -83,6 +83,6 @@ export default {
 .team {
   font-size: 1rem;
   margin-left: 100px;
-  color: $color-lavander;
+  color: $color-black;
 }
 </style>

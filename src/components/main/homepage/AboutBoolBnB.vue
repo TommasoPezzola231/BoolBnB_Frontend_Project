@@ -54,13 +54,13 @@ export default {
 h2 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: $color-lavander;
+  color: $color-primary;
 
   // text-shadow: 1px 4px 2px #ebc3f1;
   &:after {
     content: ' ';
     display: block;
-    border: 1px solid $color-lavander;
+    border: 1px solid $color-primary;
     width: 25%;
     border-radius: 4px;
     margin: 1rem 0 0 560px;
@@ -77,7 +77,7 @@ p {
 }
 
 span {
-  color: $headerLinks;
+  color: $color-primary;
   font-weight: bold;
 }
 
@@ -90,7 +90,7 @@ img {
 .row::after {
   content: ' ';
   display: block;
-  border: 1px solid $color-lavander;
+  border: 1px solid $color-primary;
   width: 100%;
   border-radius: 4px;
   margin: 5rem 0;

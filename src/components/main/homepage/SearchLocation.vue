@@ -44,7 +44,7 @@ export default {
     <!-- cerca citta -->
     <section class=" jumbo mt-4">
         <div class="row d-flex">
-            <div class=" form col-6 col-md-6 col-lg-5  col-xl-4 mb-3 h-100">
+            <div class=" form col-md-6 col-lg-5  col-xl-4 mb-3 h-100">
                 <div class=" form-body p-4 m-4 text-light rounded-5 my_bg-jumbo">
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <h1 class="display-5 fw-bold text-black">Cerca il tuo prossimo soggiorno</h1>
@@ -79,22 +79,22 @@ export default {
         font-size: 1.2rem;
         background: transparent;
         color: lightslategray;
-        border: 1px solid $headerLinks;
+        border: 1px solid $color-primary;
         border-radius: 10px;
         margin: 1rem;
 
 
         &:hover {
-            background-color: $bg-light-pink;
-            color: $headerLinks;
-            outline-color: $headerLinks;
+            background-color: $bg-color-pink;
+            color: $color-primary;
+            outline-color: $color-primary;
             transform: scale(1.2);
             transition: 0.3s;
         }
 
         &:active {
             background-color: transparent;
-            color: $headerLinks;
+            color: $color-primary;
             box-shadow: 3px 6px 8px 1px rgba(149, 103, 176, 0.9);
             transform: translateY(4px);
         }
@@ -129,7 +129,7 @@ export default {
     .form-body {
 
         background-color: $bg-color-light;
-        border: 2px solid $bg-light-pink;
+        border: 2px solid $bg-color-pink;
 
         h1 {
             font-size: 2.2rem;
