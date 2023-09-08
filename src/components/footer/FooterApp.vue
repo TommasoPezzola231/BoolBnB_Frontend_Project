@@ -32,7 +32,7 @@ export default {
                 <router-link to="/terms" class="linkFooter fontCustom">Terms</router-link>
               </div>
 
-              <span class="col-lg-5 d-flex justify-content-evenly align-items-center gap-2 text-center">
+              <span class="col-lg-6 col-xl-5 d-flex justify-content-evenly align-items-center gap-2 text-center">
                 <div class="me-3 fontCustom">Realizzato da <font-awesome-icon :icon="['fab', 'github']" class="me-3" /></div>
               
                 <a class="text-decoration-none linkFooter fontCustom me-3" href="https://github.com/MarikaDiGirolamo" target="_blank" rel="noopener noreferrer">Marika</a> 
