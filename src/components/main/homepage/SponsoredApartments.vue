@@ -34,7 +34,7 @@ export default {
             <div class="col-12">
                 <h2 class="text-center position-relative">
                     Appartamenti in evidenza
-                    <span class="sottolineatura position-absolute top-100 start-50 translate-middle"></span>
+                    <span class="sottolineatura mt-2 position-absolute top-100 start-50 translate-middle rounded"></span>
                 </h2>
                 <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
                     <template v-if="imagesLoaded">
@@ -86,7 +86,7 @@ h2{
 
 .sottolineatura {
     width: 20%;
-    height: 3px;
+    height: 2px;
     background-color: $color-primary;
 }
 .card {

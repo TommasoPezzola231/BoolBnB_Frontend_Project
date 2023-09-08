@@ -5,7 +5,7 @@ export default {
 }
 </script>
 
-<template>
+<template><!-- 
     <section class="mt-5 my_nav_link">
         <div class="row">
             <div class="col-12 d-flex gap-2">
@@ -15,7 +15,7 @@ export default {
                 <router-link to="/terms">Terms</router-link>
             </div>
         </div>
-    </section>    
+    </section>   -->  
 </template>
 
 <style lang="scss" scoped>

@@ -83,7 +83,7 @@ footer {
   z-index: 100;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 992px) {
     footer{
       display: none;
     }
