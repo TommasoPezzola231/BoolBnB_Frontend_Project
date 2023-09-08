@@ -82,4 +82,11 @@ footer {
   left: 0;
   z-index: 100;
 }
+
+@media (max-width: 576px) {
+    footer{
+      display: none;
+    }
+}
+
 </style>
