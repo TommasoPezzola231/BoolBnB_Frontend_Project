@@ -32,7 +32,10 @@ export default {
     <section class="mt-5">
         <div class="row">
             <div class="col-12">
-                <h2>Appartamenti in evidenza</h2>
+                <h2 class="text-center position-relative">
+                    Appartamenti in evidenza
+                    <span class="sottolineatura position-absolute top-100 start-50 translate-middle"></span>
+                </h2>
                 <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
                     <template v-if="imagesLoaded">
                         <!-- Show actual content -->
@@ -77,7 +80,15 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+h2{
+    color: $color-primary;
+}
 
+.sottolineatura {
+    width: 20%;
+    height: 3px;
+    background-color: $color-primary;
+}
 .card {
     transition: transform 0.3s ease-in-out;
 }

@@ -72,8 +72,7 @@ export default {
 </script>
 
 <template>
-    <section>
-        <div class="container container-img">
+        <div class="container-fluid w-100">
             <div class="row">
                 <div class="col">
                     <h1>{{ apartment.title }}</h1>
@@ -82,14 +81,14 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="">
                 <div class="col-6 mt-2">
                     <img class="big-img-placeholder"
                         :src="apartment.principal_image ? 'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
                 </div>
                 <div class="col-6 mt-2">
                     <div class="row">
-                        <div class="col-6 d-flex">
+                        <div class="col-6">
                             <div class="small-img-placeholder">Placeholder principal image</div>
                         </div>
                         <div class="col-6">
@@ -104,8 +103,8 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6">
+            <div class="">
+                <div class="col-12 col-md-8 col-lg-4">
                     <!-- mappa -->
                     <MapSingle :apartemnt="apartment" class="map" />
                     <!--------------------------------------------->
@@ -129,7 +128,7 @@ export default {
             </div>
         </div>
 
-    </section>
+
 </template>
 
 <style lang="scss" scoped>
@@ -153,7 +152,6 @@ section {
 // placheholder debugging
 
 .container-img {
-    height: 400px;
 
 
 

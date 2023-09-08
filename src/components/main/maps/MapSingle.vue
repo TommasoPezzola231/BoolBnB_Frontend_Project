@@ -53,11 +53,40 @@ export default {
 
 
 .map {
-    width: 100%;
-    height: 400px;
+    width: 50px;
     border-radius: 10px;
     border: 1px solid #ccc;
     margin-top: 20px;
 }
+
+@media (max-width: 576px) {
+    #map{
+        width: 100px;
+    }
+}
+@media (max-width: 768px) {
+    #map{
+        width: 200px;
+    }
+}
+
+@media (max-width: 992px) {
+    #map{
+        width: 300px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #map{
+        width: 400px;
+    }
+}
+@media (min-width: 1200px) {
+    #map{
+        width: 400px;
+    }
+}
+
+
 
 </style>
