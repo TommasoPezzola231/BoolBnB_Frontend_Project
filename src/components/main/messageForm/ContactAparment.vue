@@ -10,7 +10,7 @@ export default {
             required: true
         }
     },
-    
+
     data() {
         return {
             ApiUrl: "http://localhost:8000/api/messages/store",
@@ -50,12 +50,12 @@ export default {
                 this.message_text = ""
                 this.apartment_id = ""
                 alert("Messaggio inviato con successo")
-                
+
             }).catch((err) => {
-                    console.log('axios error:',err);
-                    this.loading = false
-                    alert("Errore nell'invio del messaggio")
-                })
+                console.log('axios error:', err);
+                this.loading = false
+                alert("Errore nell'invio del messaggio")
+            })
         },
     },
 }
@@ -66,8 +66,8 @@ export default {
     <div class="row">
         <div class="col">
 
-            <form @submit.prevent="SendRequest()" class="col-8 mx-auto">
-                
+            <form @submit.prevent="SendRequest()" class="col-12 mx-auto">
+
                 <div class="mb-3">
                     <label for="name_sender" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="name_sender" v-model="name_sender">
@@ -94,7 +94,9 @@ export default {
                 </div>
 
                 <input type="hidden" name="apartment_id" v-model="apartment.id">
-                <button type="submit" class="btn btn-primary mb-3" :disabled="loading"> {{ loading ? "Invio in corso.." : "Invia" }}  </button>
+                <button type="submit" class="btn bg-color-primary mb-3" :disabled="loading"> {{ loading ? "Invio in corso.."
+                    :
+                    "Contatta host" }} </button>
             </form>
         </div>
     </div>
