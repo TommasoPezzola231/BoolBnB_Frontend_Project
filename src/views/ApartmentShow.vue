@@ -72,63 +72,69 @@ export default {
 </script>
 
 <template>
-        <div class="container-fluid w-100">
-            <div class="row">
-                <div class="col">
-                    <h1>{{ apartment.title }}</h1>
-                    <div class="d-flex">
-                        <p>{{ apartment.address }}</p>
-                    </div>
+    <div class="container-fluid">
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2">
+                <h1 class="mb-2 mt-3">{{ apartment.title }}</h1>
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2">
+                <img class="big-img shadow-lg"
+                    :src="apartment.principal_image ? 'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
+                <div class="mt-3 ">
+                    <p class="fs-3">{{ apartment.address }}, {{ apartment.city }}, {{ apartment.country }}</p>
+                </div>
+                <hr>
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2 d-lg-flex d-md-flex">
+                <div class="fs-4 me-5">
+                    <font-awesome-icon :icon="['fas', 'house']" class="me-2 mb-2" />
+                    {{ apartment.num_rooms }} stanze
+                </div>
+                <div class="fs-4 me-5"><font-awesome-icon :icon="['fas', 'toilet']" class="me-3 mb-2" />{{
+                    apartment.num_bathrooms }} bagni
+                </div>
+                <div class="fs-4 me-5">
+                    <font-awesome-icon :icon="['fas', 'ruler-combined']" class="me-2 mb-2" />
+                    {{ apartment.square_meters }} metri quadri
                 </div>
             </div>
-            <div class="">
-                <div class="col-6 mt-2">
-                    <img class="big-img-placeholder"
-                        :src="apartment.principal_image ? 'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
-                </div>
-                <div class="col-6 mt-2">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="small-img-placeholder">Placeholder principal image</div>
-                        </div>
-                        <div class="col-6">
-                            <div class="small-img-placeholder">Placeholder principal image</div>
-                        </div>
-                        <div class="col-6">
-                            <div class="small-img-placeholder">Placeholder principal image</div>
-                        </div>
-                        <div class="col-6">
-                            <div class="small-img-placeholder">Placeholder principal image</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2 mt-3">
+                <div class="fs-3 color-primary">Descrizione appartamento</div>
+                <p class="fs-5">{{ apartment.description }}</p>
             </div>
-            <div class="">
-                <div class="col-12 col-md-8 col-lg-4">
-                    <!-- mappa -->
-                    <MapSingle :apartemnt="apartment" class="map" />
-                    <!--------------------------------------------->
-                    <p class="mt-4 py-5 border-top border-bottom">{{ apartment.description }}</p>
-                    <template v-for="service in apartment.services" :key="service">
-                        <span class="m-2 p-2 service ">
-                            <span class="me-2">{{ service.name_service }}</span>
-                            <font-awesome-icon :icon="service.icon_service" />
-                        </span>
-                    </template>
-                </div>
-                <div class="col-6">
-                    <!-- form ivio messaggio -->
-                    <h3 class="mx-5 mt-4">Contatta {{ apartment.user.name }} {{ apartment.user.surname }} per
-                        l'appartamento</h3>
-                    <div class="my_form">
-                        <!-- <ContactAparment /> -->
-                        <ContactAparment :apartment="apartment" />
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2">
+                <div class="fs-3 color-primary">Servizi presenti:</div>
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2 d-lg-flex d-md-flex flex-wrap">
+                <template v-for="service in apartment.services" :key="service">
+                    <div class="m-2 p-2 d-flex service">
+                        <div class="me-2">{{ service.name_service }}</div>
+                        <font-awesome-icon :icon="service.icon_service" />
                     </div>
+                </template>
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2">
+                <hr>
+                <h3 class="mt-4 color-primary">Contatta {{ apartment.user.name }} {{ apartment.user.surname }} per
+                    l'appartamento</h3>
+                <div class="my_form">
+                    <!-- <ContactAparment /> -->
+                    <ContactAparment :apartment="apartment" />
                 </div>
+                <hr>
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2">
+                <div class="fs-3 color-primary">Siamo qui</div>
+                <MapSingle :apartemnt="apartment" class=" map w-100 w-sm-75 w-md-50 w-lg-25" />
             </div>
         </div>
+    </div>
 
 
+
+
+    <!-- lavoro vecchio -->
 </template>
 
 <style lang="scss" scoped>
@@ -136,64 +142,33 @@ export default {
 @import '../styles/partials/variables';
 
 h1 {
-    color: $color-black;
+    color: $color-primary;
 }
 
-p {
-    font-size: 1.2rem;
-    color: gray;
-}
 
-section {
-    padding: 2rem;
-    // giusto per staccare dai bordi
-}
+
+
 
 // placheholder debugging
 
-.container-img {
-
-
-
-}
-
-.big-img-placeholder {
+.big-img {
     width: 100%;
-    background-color: bisque;
-    height: 415px;
+    height: 70vh;
     border-radius: 20px;
 }
 
-.small-img-placeholder {
-    width: 100%;
-    background-color: bisque;
-    height: 200px;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-}
 
-.fa-solid {
-    font-size: 15px;
-    color: white;
-    background-color: red;
-}
+
 
 .map {
-    height: 300px;
-    width: 635px;
-
+    height: 500px;
 }
 
-.my_form {
-    margin-bottom: 100px;
-    width: 400px;
-}
+
 
 .service {
     border: 1px solid gray;
     border-radius: 10px;
-    color: lightgray;
-    flex-wrap: wrap;
     @include flex;
 
     &:hover {
