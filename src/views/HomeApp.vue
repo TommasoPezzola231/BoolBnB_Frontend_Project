@@ -83,14 +83,4 @@ export default {
 //     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 // }
 
-.title h1 {
-    font-size: 4rem;
-    font-weight: bold;
-    color: $color-primary;
-
-}
-
-.title p {
-    font-size: 2.5rem;
-}
 </style>
