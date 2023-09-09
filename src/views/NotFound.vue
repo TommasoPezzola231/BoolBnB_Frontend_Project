@@ -44,16 +44,6 @@ export default {
 @import '../styles/main.scss';
 @import '../styles/partials/_variables.scss';
 
-.my_btn {
-    background-color: $color-primary;
-    transition: all 0.3s;
-
-    &:hover {
-        background-color: $color-primary;
-        color: $bg-light;
-    }
-}
-
 img {
     width: 200px;
     height: 200px;

@@ -37,3 +37,13 @@ ul {
 .bg-color-primary {
     background-color: $color-primary;
 }
+
+.my_btn {
+    background-color: $color-primary;
+    transition: all 0.3s;
+
+    &:hover {
+        background-color: $color-primary;
+        color: $bg-light;
+    }
+}
