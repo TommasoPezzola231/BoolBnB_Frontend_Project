@@ -32,19 +32,19 @@ export default {
         <div id="carouselExampleSlidesOnly" class="carousel slide dimensioni_img object-fit-cover" data-bs-ride="carousel">
           <div class="carousel-inner rounded shadow">
             <div class="carousel-item active">
-              <img src="https://www.udr.com/globalassets/corporate/homepage/homepage_2_essexluxe.jpg" class="d-block w-100" alt="...">
+              <img src="https://www.udr.com/globalassets/corporate/homepage/homepage_2_essexluxe.jpg" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=" class="d-block w-100" alt="...">
+              <img src="https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://images.ctfassets.net/pg6xj64qk0kh/mwsUhyGswLjXMSLoDfpqH/529760a3f4cd85c5c3eb8f7b6c13a67d/camden-tempe-apartments-tempe-az-west-pool-and-loungers.jpg" class="d-block w-100" alt="...">
+              <img src="https://images.ctfassets.net/pg6xj64qk0kh/mwsUhyGswLjXMSLoDfpqH/529760a3f4cd85c5c3eb8f7b6c13a67d/camden-tempe-apartments-tempe-az-west-pool-and-loungers.jpg" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://zillowstatic.com/bedrock/app/uploads/sites/15/Insane-Apartment-Amenities-That-Celebs-Love-1-4-HERO.jpg" class="d-block w-100" alt="...">
+              <img src="https://zillowstatic.com/bedrock/app/uploads/sites/15/Insane-Apartment-Amenities-That-Celebs-Love-1-4-HERO.jpg" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://dynamicmedia.irvinecompany.com/is/image/content/dam/apartments/3-readytopublish/communities/orangecounty/irvine/promenade/photography/1940-09_Family_Rm_Model-5_Promenade_IrvineApts_EricFiggePhotos.tif?&crop=774,440,4541,3032&wid=720&iccEmbed=1&icc=AdobeRGB&resMode=sharp2&fmt=pjpeg&pscan=auto" class="d-block w-100" alt="...">
+              <img src="https://dynamicmedia.irvinecompany.com/is/image/content/dam/apartments/3-readytopublish/communities/orangecounty/irvine/promenade/photography/1940-09_Family_Rm_Model-5_Promenade_IrvineApts_EricFiggePhotos.tif?&crop=774,440,4541,3032&wid=720&iccEmbed=1&icc=AdobeRGB&resMode=sharp2&fmt=pjpeg&pscan=auto" class="d-block w-100 h-100" alt="...">
             </div>
           </div>
         </div>

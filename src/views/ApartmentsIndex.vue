@@ -17,26 +17,6 @@ export default {
     data () {
         return {
             open: false,
-            /*services: [
-                "Wi-Fi",
-                "Piscina",
-                "Palestra",
-                "Sauna",
-                "Vista Mare",
-                "Posto Auto",
-                "Aria Condizionata",
-                "Riscaldamento",
-                "colazione",
-                "TV",
-                "Cucina",
-                "Lavatrice",
-                "Ferro da stiro",
-                "Asciugacapelli",
-                "Fumo permesso",
-                "Kit di pronto soccorso",
-                "Animali domestici ammessi",
-                "Camino"
-            ],*/
             selectedServices: [],
         };
     },

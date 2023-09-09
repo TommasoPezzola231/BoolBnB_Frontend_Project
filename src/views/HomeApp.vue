@@ -54,14 +54,6 @@ export default {
 <template>
     <section class=" bg d-flex align-items-center min-vh-100-md">
         <div class="container-fluid">
-            <!-- benvenuto -->
-            <!--<div class="row title mt-5">
-                <div class="col-12 text-center">
-                    <h1>Benvenuto su {{ title }}</h1>
-                    <p class="lead text-black">Trova un appartamento per le tue vacanze o per un soggiorno di lavoro</p>
-                    <hr class="border border-bottom">
-                </div>
-            </div>-->
             <!-- cerca citta -->
             <SearchLocation />
             <!-- appartamenti in evidenza -->
@@ -77,10 +69,5 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/main.scss';
 @import '../styles/partials/_variables.scss';
-
-// .bg {
-//     background-color: #4158D0;
-//     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-// }
 
 </style>

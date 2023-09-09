@@ -38,7 +38,7 @@ export default {
 </script>
 
 <template>
-  <header>
+  <header class="shadow">
     <HeaderApp />
   </header>
 
@@ -46,7 +46,7 @@ export default {
     <router-view></router-view>
   </main>
 
-  <footer>
+  <footer  class="shadow">
     <FooterApp />
   </footer>
 </template>
@@ -84,9 +84,19 @@ footer {
 }
 
 @media (max-width: 992px) {
-    footer{
-      display: none;
-    }
+  footer {
+    position: static; 
+    height: auto; 
+  }
+
+  header {
+    position: fixed;
+  }
+
+  main {
+    margin-top: 5rem; 
+    margin-bottom: 0;
+  }
 }
 
 </style>

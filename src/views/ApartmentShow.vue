@@ -145,31 +145,19 @@ h1 {
     color: $color-primary;
 }
 
-
-
-
-
-// placheholder debugging
-
 .big-img {
     width: 100%;
     height: 70vh;
     border-radius: 20px;
 }
 
-
-
-
 .map {
     height: 500px;
 }
 
-
-
 .service {
     border: 1px solid gray;
     border-radius: 10px;
-    @include flex;
 
     &:hover {
         cursor: pointer;
