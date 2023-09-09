@@ -1,8 +1,5 @@
-// import scss file
-
 // bootstrap
 @import "node_modules/bootstrap/scss/bootstrap";
-// @import '~bootstrap/scss/bootstrap';
 
 // partials
 @import "./partials/_variables.scss";
@@ -22,15 +19,7 @@ body {
     line-height: 1.5;
     color: $color-text-primary;
     scroll-behavior: smooth;
-    font-family: 'Roboto', sans-serif;
 }
-
-// main{
-//     background-color: #4158D0;
-//     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-// }
-
-
 
 ul {
     margin: 0;
@@ -40,10 +29,6 @@ ul {
         list-style: none;
     }
 }
-
-// .my_header_color_text {
-//     // color: $color-text-primary;
-// }
 
 .color-primary {
     color: $color-primary;
