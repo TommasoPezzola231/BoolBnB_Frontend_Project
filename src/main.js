@@ -40,6 +40,7 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faRulerCombined } from "@fortawesome/free-solid-svg-icons";
 import { faEuroSign } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 
 library.add(faGithub);
@@ -68,6 +69,7 @@ library.add(faHouse);
 library.add(faRulerCombined);
 library.add(faEuroSign);
 library.add(faLocationDot);
+library.add(faTriangleExclamation);
 
 
 

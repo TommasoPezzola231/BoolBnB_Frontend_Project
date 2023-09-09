@@ -14,6 +14,7 @@ export default {
         ResultApartments,
         FooterApp,
     },
+
     data () {
         return {
             open: false,

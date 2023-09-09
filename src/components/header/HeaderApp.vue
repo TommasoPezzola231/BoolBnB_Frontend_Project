@@ -4,6 +4,17 @@ import { store } from '../../store';
 export default {
   name: 'HeaderApp',
 
+  props: {
+    title: {
+      type: String,
+      default: 'BoolBnB'
+    },
+    logo: {
+      type: String,
+      default: 'src/assets/logo/Bool BnB_Black.png'
+    },
+  },
+
   data() {
     return {
       title: 'BoolBnB',
@@ -24,8 +35,7 @@ export default {
         class="nav col d-flex justify-content-center justify-content-between align-items-center">
         <router-link :to="{ name: 'home' }" class="align-items-center h-100 d-flex text-decoration-none gap-2">
           <div class="logo align-items-center h-100 d-flex">
-            <!--percorso immagine-->
-            <a href=""><img src="/src/assets/logo/Bool BnB_Black.png" class="logo img-fluid" alt="Logo"></a>
+            <img :src="logo" class="logo img-fluid" alt="Logo">
           </div>
           <div>
             <h1 class="my_title_color_text m-0">{{ title }}</h1>

@@ -24,9 +24,13 @@ const router = createRouter({
             component: ApartmentShow,
         },
         {
-            path: '/:pathMath(.*)*',
-            name: 'not-found-404',
+            path: '/not-found',
+            name: 'not-found',
             component: NotFound,
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            redirect: { name: 'not-found' },
         }
     ],
 });

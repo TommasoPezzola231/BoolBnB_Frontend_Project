@@ -1,5 +1,4 @@
 <script>
-
 export default {
   name: 'FooterApp',
 
@@ -7,7 +6,11 @@ export default {
     title: {
       type: String,
       default: 'BoolBnB'
-    }
+    },
+    logo: {
+      type: String,
+      default: 'src/assets/logo/Bool BnB_Black.png'
+    },
   },
   data () {
     return {
@@ -27,7 +30,11 @@ export default {
           <div class="d-lg-flex gap-3">
             <div class="d-lg-flex align-items-center">
               <div class="d-flex justify-content-center align-items-center">
-                <img src="/src/assets/logo/Bool BnB_Black.png" class="my_logo" alt="Logo">
+                <!-- <img src="../../assets/logo/Bool BnB_Black.png" class="my_logo" alt="Logo"> -->
+                <!-- use import logo from '@/assets/logo/Bool BnB_Black.png'; -->
+              <img :src="logo" class="my_logo" alt="Logo">
+
+
               </div>
               <h1 class="m-0 py-2 py-lg-0 text-center my_color_footer_header">{{ title }}</h1>
             </div>

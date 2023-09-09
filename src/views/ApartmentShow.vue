@@ -16,6 +16,16 @@ export default {
         FooterApp,
     },
 
+    beforeRouteEnter(to, from, next) {
+        const { id } = to.params;
+        // Check if 'id' is a valid integer (you can customize the validation logic)
+        if (!Number.isInteger(parseInt(id))) {
+            next({ name: 'not-found' }); // Redirect to 404 error page
+        } else {
+            next();
+        }
+    },
+
     data() {
         return {
             ApiUrl: "http://localhost:8000/api/apartments/",
@@ -130,11 +140,6 @@ export default {
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- lavoro vecchio -->
 </template>
 
 <style lang="scss" scoped>

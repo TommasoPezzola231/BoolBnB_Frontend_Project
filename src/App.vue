@@ -49,6 +49,8 @@ export default {
   <footer  class="shadow">
     <FooterApp />
   </footer>
+
+   <router-view name="not-found"></router-view>
 </template>
 
 <style lang="scss" scoped>
