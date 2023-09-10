@@ -9,6 +9,7 @@ export default {
         return {
             store,
             loading: false,
+            apartments: [],
         };
     },
 
@@ -25,13 +26,12 @@ export default {
 
 <template>
 
-
-
     <div class="row mb-4 w-100 mx-auto">
         <button type="button" class="btn btnCustom" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Ricerca Avanzata
         </button>
         <h2 class="text-center mt-5">Risultati ricerca</h2>
+        <p class="text-center mt-3">Numero di risultati: {{ store.apartments.length }}</p>
 
         <!-- Show loading spinner when loading is true -->
         <div v-if="loading" class="spinner-border text-primary" role="status">
@@ -51,9 +51,11 @@ export default {
             <div v-else class="row p-2">
                 <div v-for="apartment in store.apartments" :key="apartment.id" class="col-12 col-md-6 col-xl-4 col-xxl-3 g-4 mb-5">   
                     <router-link class="" :to="{ name: 'apartment-show', params: { id: apartment.id } }">
-                        <div class="card-apartment shadow p-1 rounded my-3 text-center h-100">
-                            <div class="px-2">
-                                <img class="w-100 rounded-4 p-2" :src="apartment.principal_image ?  'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
+                        <div class="card-apartment d-flex flex-column shadow p-1 rounded my-3 text-center h-100">
+                            <div class="px-2 flex-grow-1">
+                                <div class="my_card_img">
+                                    <img class="w-100 rounded-4 p-2" :src="apartment.principal_image ?  'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
+                                </div>
                                 <h3 class="mt-3">{{ apartment.title }}</h3>
                                 <p>{{ apartment.address }} {{ apartment.city }}</p>
         
@@ -75,19 +77,20 @@ export default {
                                         </li>
                                     </template>
                                 </ul>
-                                <div class="text-end mt-2">
-                                    <div>
-                                        Prezzo: {{ apartment.price }}€
-                                    </div>
+                            </div>
+
+                            <div class="text-end my-2 pe-3 pb-3 align-end ">
+                                <div>
+                                    Prezzo: {{ apartment.price }}€
                                 </div>
                             </div>
+                            
                         </div>
                     </router-link>
                 </div>
             </div>
         </div>
     </div>
-        
 </template>
 
 <style lang="scss" scoped>
@@ -105,6 +108,20 @@ export default {
 a {
     text-decoration: none;
     color: black;
+}
+
+.my_card_img {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center-top;
+        aspect-ratio: 16/9;
+    }
 }
 
 .my_badge {
