@@ -40,7 +40,7 @@ export default {
                     <template v-if="imagesLoaded">
                         <!-- Show actual content -->
                         <template v-for="apartment in apartments" :key="apartment.id">
-                            <div class="col col-md-6 col-lg-4 col-xxl-3 shadow">
+                            <div class="col col-md-6 col-lg-4 col-xxl-3">
                                 <div class="card text-white bg-dark h-100 d-flex align-items-stretch">
                                     <div class="my_card_img">
                                         <img :src="(apartment.full_path_principal_image ? apartment.full_path_principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png')" class="card-img-top" :alt="apartment.title">
@@ -56,6 +56,7 @@ export default {
                             </div>
                         </template>
                     </template>
+
                     <template v-else>
                         <!-- placeholder card -->
                         <div v-for="index in apartments.length" :key="index" class="col col-md-6 col-lg-4 col-xl-3">
@@ -132,8 +133,6 @@ h2{
         background-color: #a15d5d;
         position: relative;
         overflow: hidden;
-    }
-
-    
+    } 
 }
 </style>
