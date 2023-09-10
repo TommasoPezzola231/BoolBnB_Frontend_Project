@@ -49,7 +49,7 @@ export default {
 
             <!-- risultati -->
             <div v-else class="row p-2">
-                <div v-for="apartment in store.apartments" :key="apartment.id" class="col-12 col-md-6 col-xl-4 col-xxl-3 g-4 mb-5">   
+                <div v-for="apartment in store.apartments" :key="apartment.id" class="col-12 col-md-6 col-xl-6 col-xxl-4 g-4 mb-5">   
                     <router-link class="" :to="{ name: 'apartment-show', params: { id: apartment.id } }">
                         <div class="card-apartment d-flex flex-column shadow p-1 rounded my-3 text-center h-100">
                             <div class="px-2 flex-grow-1">
