@@ -40,10 +40,11 @@ export default {
                     <template v-if="imagesLoaded">
                         <!-- Show actual content -->
                         <template v-for="apartment in apartments" :key="apartment.id">
-                            <div class="col col-md-6 col-lg-4 col-xxl-3">
+                            <div class="col col-md-6 col-lg-4 col-xxl-3 shadow">
                                 <div class="card text-white bg-dark h-100 d-flex align-items-stretch">
-                                    <!-- <img :src="getImageUrl(apartment.principal_image)" class="card-img-top" alt="Apartment Image"> -->
-                                    <img :src="(apartment.full_path_principal_image ? apartment.full_path_principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png')" class="card-img-top" :alt="apartment.title">
+                                    <div class="my_card_img">
+                                        <img :src="(apartment.full_path_principal_image ? apartment.full_path_principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png')" class="card-img-top" :alt="apartment.title">
+                                    </div>
                                     <div class="card-body">
                                         <p class="card-title"><strong>{{ apartment.title }}</strong></p>
                                         <p class="card-text">{{ apartment.price }} € <small> • per notte</small></p>
@@ -91,6 +92,20 @@ h2{
 }
 .card {
     transition: transform 0.3s ease-in-out;
+}
+
+.my_card_img {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center-top;
+        aspect-ratio: 16/9;
+    }
 }
 
 // placeholder card
