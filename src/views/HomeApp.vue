@@ -19,17 +19,18 @@ export default {
         FooterApp,
     },
 
-    props: {
+    /* props: {
         title: {
             type: String,
             default: 'BoolBnB',
         },
-    },
+    }, */
 
     data() {
         return {
             store,
             apartments: [],
+            
         }
     },
     methods: {
@@ -37,12 +38,15 @@ export default {
         getProjects() {
             axios.get(`${this.store.baseUrl}${this.store.apiEndpoint}/apartments`)
                 .then(result => {
-                    this.apartments = result.data.apartments;
+                    store.apartmentsSponsor = result.data.apartments.data;
+                    store.currentPage = result.data.apartments.current_page;
+                    store.lastPage = result.data.apartments.last_page;
                 })
                 .catch(err => {
                     console.log(err);
                 });
         },
+
     },
 
     mounted() {
@@ -57,7 +61,8 @@ export default {
             <!-- cerca citta -->
             <SearchLocation />
             <!-- appartamenti in evidenza -->
-            <SponsoredApartments :apartments="apartments" />
+            <SponsoredApartments />
+
             <!-- about -->
             <AboutBoolBnB />
             <!-- nav link footer -->
