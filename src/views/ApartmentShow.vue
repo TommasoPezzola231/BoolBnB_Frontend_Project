@@ -86,37 +86,39 @@ export default {
 
         <div class="row d-flex justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12 p-2">
-                <h1 class="mb-2 mt-3">{{ apartment.title }}</h1>
+                <h1 class="mb-2 mt-3 text-center">{{ apartment.title }}</h1>
             </div>
             <div class="col-lg-8 col-md-10 col-sm-12 p-2">
+                
                 <img class="big-img shadow-lg"
                     :src="apartment.principal_image ? 'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
+        
                 <div class="mt-3 ">
-                    <p class="fs-3">{{ apartment.address }}, {{ apartment.city }}, {{ apartment.country }}</p>
+                    <p class="fs-3 text-center text-lg-start">{{ apartment.address }}, {{ apartment.city }}, {{ apartment.country }}</p>
                 </div>
                 <hr>
             </div>
-            <div class="col-lg-8 col-md-10 col-sm-12 p-2 d-lg-flex d-md-flex">
-                <div class="fs-4 me-5">
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2 d-flex align-items-center justify-content-between flex-column align-items-lg-start">
+                <div class="fs-4">
                     <font-awesome-icon :icon="['fas', 'house']" class="me-2 mb-2" />
                     {{ apartment.num_rooms }} stanze
                 </div>
-                <div class="fs-4 me-5"><font-awesome-icon :icon="['fas', 'toilet']" class="me-3 mb-2" />{{
+                <div class="fs-4"><font-awesome-icon :icon="['fas', 'toilet']" class="me-3 mb-2" />{{
                     apartment.num_bathrooms }} bagni
                 </div>
-                <div class="fs-4 me-5">
+                <div class="fs-4">
                     <font-awesome-icon :icon="['fas', 'ruler-combined']" class="me-2 mb-2" />
                     {{ apartment.square_meters }} metri quadri
                 </div>
             </div>
-            <div class="col-lg-8 col-md-10 col-sm-12 p-2 mt-3">
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2 mt-3 text-center text-lg-start">
                 <div class="fs-3 color-primary">Descrizione appartamento</div>
                 <p class="fs-5">{{ apartment.description }}</p>
             </div>
-            <div class="col-lg-8 col-md-10 col-sm-12 p-2">
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2 text-center text-lg-start">
                 <div class="fs-3 color-primary">Servizi presenti:</div>
             </div>
-            <div class="col-lg-8 col-md-10 col-sm-12 p-2 d-lg-flex d-md-flex flex-wrap">
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <template v-for="service in apartment.services" :key="service">
                     <div class="m-2 p-2 d-flex service">
                         <div class="me-2">{{ service.name_service }}</div>
@@ -126,7 +128,7 @@ export default {
             </div>
             <div class="col-lg-8 col-md-10 col-sm-12 p-2">
                 <hr>
-                <h3 class="mt-4 color-primary">Contatta {{ apartment.user.name }} {{ apartment.user.surname }} per
+                <h3 class="mt-4 color-primary text-center text-lg-start">Contatta {{ apartment.user.name }} {{ apartment.user.surname }} per
                     l'appartamento</h3>
                 <div class="my_form">
                     <!-- <ContactAparment /> -->
@@ -134,8 +136,8 @@ export default {
                 </div>
                 <hr>
             </div>
-            <div class="col-lg-8 col-md-10 col-sm-12 p-2">
-                <div class="fs-3 color-primary">Siamo qui</div>
+            <div class="col-lg-8 col-md-10 col-sm-12 p-2 mb-5">
+                <div class="fs-3 color-primary text-center text-lg-start">Siamo qui</div>
                 <MapSingle :apartemnt="apartment" class=" map w-100 w-sm-75 w-md-50 w-lg-25" />
             </div>
         </div>
@@ -152,7 +154,9 @@ h1 {
 
 .big-img {
     width: 100%;
-    height: 70vh;
+    height: 40vh;
+    object-fit: cover;
+    aspect-ratio: 4/3;
     border-radius: 20px;
 }
 
@@ -166,6 +170,19 @@ h1 {
 
     &:hover {
         cursor: pointer;
+    }
+}
+
+@media (min-width: 1200px) {
+    .big-img {
+        height: 60vh;
+    }
+}
+
+
+@media (min-width: 1600px) {
+    .big-img {
+        height: 80vh;
     }
 }
 </style>

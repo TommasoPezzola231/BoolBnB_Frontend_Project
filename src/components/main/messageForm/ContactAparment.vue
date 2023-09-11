@@ -63,7 +63,7 @@ export default {
 </script>
 
 <template>
-    <div class="row">
+    <div class="row p-3 p-lg-0">
         <div class="col">
 
             <form @submit.prevent="SendRequest()" class="col-12 mx-auto">
@@ -94,9 +94,9 @@ export default {
                 </div>
 
                 <input type="hidden" name="apartment_id" v-model="apartment.id">
-                <button type="submit" class="btn bg-color-primary mb-3" :disabled="loading"> {{ loading ? "Invio in corso.."
-                    :
-                    "Contatta host" }} </button>
+                <div class="d-flex align-itemse-center justify-content-center justify-content-lg-start">
+                    <button type="submit" class="btn my_btn mb-3" :disabled="loading"> {{ loading ? "Invio in corso.." : "Contatta host" }} </button>
+                </div>
             </form>
         </div>
     </div>
