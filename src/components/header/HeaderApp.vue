@@ -5,10 +5,11 @@ export default {
   name: 'HeaderApp',
 
   props: {
-    title: {
+    name: {
       type: String,
-      default: 'BoolBnB'
+      default: 'home'
     },
+    
     logo: {
       type: String,
       default: 'src/assets/logo/Bool BnB_Black.png'
@@ -18,12 +19,17 @@ export default {
   data() {
     return {
       title: 'BoolBnB',
-      store
+      store,
     }
   },
-  mounted() {
+  
+  methods: {
+    // 
+  },
 
-  }
+  mounted() {
+    // 
+  },
 }
 
 </script>
@@ -33,7 +39,7 @@ export default {
     <div class="row h-100">
       <div
         class="nav col d-flex justify-content-center justify-content-between align-items-center">
-        <router-link :to="{ name: 'home' }" class="align-items-center h-100 d-flex text-decoration-none gap-2">
+        <router-link :to="{ name }" class="align-items-center h-100 d-flex text-decoration-none gap-2">
           <div class="logo align-items-center h-100 d-flex">
             <img :src="logo" class="logo img-fluid" alt="Logo">
           </div>
@@ -44,8 +50,8 @@ export default {
         <!-- xl - lg desktop -->
         <div class="d-flex justify-content-end d-none d-lg-inline">
           <div class="d-flex justify-content-center align-content-center gap-3">
-            <router-link :to="{ name: 'home' }"
-              class=" my_header_color_text align-items-center h100 d-flex text-decoration-none">
+            <router-link :to="{ name }"
+              class="my_header_color_text align-items-center h100 d-flex text-decoration-none">
               <div>
                 <a href="" class="my_header_color_text">Home</a>
               </div>
@@ -58,11 +64,11 @@ export default {
               </div>
             </router-link>
 
-            <!-- login href = localhost:8000/login -->
-            <a href="http://localhost:8000/login"
-              class="align-items-center d-flex text-decoration-none my_header_color_text">Accedi</a>
-            <div class="account align-items-center h-100 d-flex">
-              <a href=""><img src="/src/assets/img/account-icon.jpg" class="account"></a>
+            <div class="d-flex gap-3">
+              <a href="http://localhost:8000/login" class="align-items-center d-flex text-decoration-none my_header_color_text">Accedi</a>
+              <!-- <div class="account align-items-center h-100 d-flex">
+                <a href="#"><img src="/src/assets/img/pngwing.com.png" class="account"></a>
+              </div> -->
             </div>
           </div>
         </div>

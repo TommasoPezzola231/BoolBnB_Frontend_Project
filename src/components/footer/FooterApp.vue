@@ -3,15 +3,13 @@ export default {
   name: 'FooterApp',
 
   props: {
-    title: {
-      type: String,
-      default: 'BoolBnB'
-    },
+
     logo: {
       type: String,
       default: 'src/assets/logo/Bool BnB_Black.png'
     },
   },
+
   data () {
     return {
       title: 'BoolBnB'
