@@ -21,6 +21,7 @@ export default {
             message_text: "",
             apartment_id: [],
             loading: false,
+            errors: [],
         };
     },
 
@@ -29,6 +30,7 @@ export default {
         SendRequest() {
 
             this.loading = true
+            this.errors = []
 
             let data = {
                 name_sender: this.name_sender,
@@ -42,14 +44,23 @@ export default {
             axios.post(this.ApiUrl, data).then((result) => {
                 console.log(result);
 
-                this.loading = false
-                this.name_sender = ""
-                this.surname_sender = ""
-                this.email_sender = ""
-                this.message_object = ""
-                this.message_text = ""
-                this.apartment_id = ""
-                alert("Messaggio inviato con successo")
+                let success = result.data.success;
+
+                if(!success) {
+                    console.error("Ci sono stati errori", result.data.errors);
+                    this.errors = result.data.errors;
+                    this.loading = false
+                } else {
+                    this.loading = false
+                    this.name_sender = ""
+                    this.surname_sender = ""
+                    this.email_sender = ""
+                    this.message_object = ""
+                    this.message_text = ""
+                    this.apartment_id = ""
+                    alert("Messaggio inviato con successo")
+                }
+
 
             }).catch((err) => {
                 console.log('axios error:', err);
@@ -69,28 +80,33 @@ export default {
             <form @submit.prevent="SendRequest()" class="col-12 mx-auto">
 
                 <div class="mb-3">
-                    <label for="name_sender" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="name_sender" v-model="name_sender">
+                    <label for="name_sender" class="form-label" >Nome</label>
+                    <input type="text" class="form-control" id="name_sender" v-model="name_sender" >
+                    <p v-for="error in errors.name_sender" class="bg-danger-subtle rounded ps-1">{{ error }}</p>
                 </div>
 
                 <div class="mb-3">
-                    <label for="surname_sender" class="form-label">Cognome</label>
-                    <input type="text" class="form-control" id="surname_sender" v-model="surname_sender">
+                    <label for="surname_sender" class="form-label" >Cognome</label>
+                    <input type="text" class="form-control" id="surname_sender" v-model="surname_sender" >
+                    <p v-for="error in errors.surname_sender" class="bg-danger-subtle rounded ps-1">{{ error }}</p>
                 </div>
 
                 <div class="mb-3">
-                    <label for="email_sender" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email_sender" v-model="email_sender">
+                    <label for="email_sender" class="form-label" >Email</label>
+                    <input type="email" class="form-control" id="email_sender" v-model="email_sender" >
+                    <p v-for="error in errors.email_sender" class="bg-danger-subtle rounded ps-1">{{ error }}</p>
                 </div>
 
                 <div class="mb-3">
-                    <label for="message_object" class="form-label">Oggetto</label>
-                    <input type="text" class="form-control" id="message_object" v-model="message_object">
+                    <label for="message_object" class="form-label" >Oggetto</label>
+                    <input type="text" class="form-control" id="message_object" v-model="message_object" >
+                    <p v-for="error in errors.message_object" class="bg-danger-subtle rounded ps-1">{{ error }}</p>
                 </div>
 
                 <div class="mb-3">
-                    <label for="message_text" class="form-label">Messaggio</label>
-                    <textarea class="form-control" name="message_text" id="message_text" v-model="message_text"></textarea>
+                    <label for="message_text" class="form-label" >Messaggio</label>
+                    <textarea class="form-control" name="message_text" id="message_text" v-model="message_text" ></textarea>
+                    <p v-for="error in errors.message_text" class="bg-danger-subtle rounded ps-1">{{ error }}</p>
                 </div>
 
                 <input type="hidden" name="apartment_id" v-model="apartment.id">
