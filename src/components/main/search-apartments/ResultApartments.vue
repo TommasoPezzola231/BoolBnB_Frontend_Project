@@ -25,7 +25,6 @@ export default {
 </script>
 
 <template>
-
     <div class="row mb-4 w-100 mx-auto">
         <button type="button" class="btn btnCustom" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Ricerca Avanzata
@@ -40,7 +39,8 @@ export default {
 
         <div v-else>
             <!-- nessun risultato -->
-            <div v-if="store.apartments.length === 0" class="d-flex flex-column align-items-center justify-content-center p-2">
+            <div v-if="store.apartments.length === 0"
+                class="d-flex flex-column align-items-center justify-content-center p-2">
                 <div class="alert alert-dark shadow" role="alert">
                     <h3 class="text-center">Nessun appartamento trovato!</h3>
                     <p class="text-center">Riprova con altri parametri di ricerca</p>
@@ -49,28 +49,33 @@ export default {
 
             <!-- risultati -->
             <div v-else class="row p-2">
-                <div v-for="apartment in store.apartments" :key="apartment.id" class="col-12 col-md-6 col-xl-6 col-xxl-4 g-4 mb-5 position-relative">   
+                <div v-for="apartment in store.apartments" :key="apartment.id"
+                    class="col-12 col-md-6 col-xl-6 col-xxl-4 g-4 mb-5 position-relative">
                     <router-link class="" :to="{ name: 'apartment-show', params: { id: apartment.id } }">
                         <div class="card-apartment d-flex flex-column shadow p-1 rounded my-3 text-center h-100">
                             <div class="px-2 flex-grow-1">
                                 <div class="my_card_img">
-                                    <img class="w-100 rounded-4 p-2" :src="apartment.principal_image ?  'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
+                                    <img class="w-100 rounded-4 p-2"
+                                        :src="apartment.principal_image ? 'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
                                 </div>
                                 <h3 class="mt-3">{{ apartment.title }}</h3>
                                 <p>{{ apartment.address }} {{ apartment.city }}</p>
 
-                                <div v-if="apartment.is_sponsored" class="position-absolute sponsored" >
+                                <div v-if="apartment.is_sponsored" class="position-absolute sponsored">
                                     Sponsorizzato
                                 </div>
-        
+
                                 <div class="row">
                                     <div class="d-flex justify-content-between">
-                                        <p class="col-4 text-center"><font-awesome-icon :icon="['fas', 'toilet']" /> {{ apartment.num_bathrooms }}</p>
-                                        <p class="col-4 text-center"><font-awesome-icon :icon="['fas', 'house']" /> {{ apartment.num_rooms }}</p>
-                                        <p class="col-4 text-center"><font-awesome-icon :icon="['fas', 'ruler-combined']" /> {{ apartment.square_meters }} metri quadri</p>
+                                        <p class="col-4 text-center"><font-awesome-icon :icon="['fas', 'house']" /> {{
+                                            apartment.num_rooms }}</p>
+                                        <p class="col-4 text-center"><font-awesome-icon :icon="['fas', 'toilet']" /> {{
+                                            apartment.num_bathrooms }}</p>
+                                        <p class="col-4 text-center"><font-awesome-icon :icon="['fas', 'ruler-combined']" />
+                                            {{ apartment.square_meters }} metri quadri</p>
                                     </div>
                                 </div>
-                        
+
                                 <ul class="d-flex flex-wrap gap-2 p-2 justify-content-center">
                                     <template v-for="service in apartment.services" :key="service">
                                         <li class="my_badge shadow">
@@ -88,7 +93,7 @@ export default {
                                     Prezzo: {{ apartment.price }}€
                                 </div>
                             </div>
-                            
+
                         </div>
                     </router-link>
                 </div>
@@ -98,13 +103,12 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
-.btnCustom{    
+.btnCustom {
     background-color: $color-primary;
     border: none;
     border-radius: 0%;
-   
-    &:hover{
+
+    &:hover {
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.158);
     }
 }
@@ -144,15 +148,14 @@ a {
     }
 }
 
-.card-apartment{
+.card-apartment {
     background-color: white;
 }
 
-.sponsored{
+.sponsored {
     left: 0;
     top: 6%;
     padding: 0.5rem;
     transform: rotate(-45deg);
     background-color: yellowgreen;
-}
-</style>
+}</style>
