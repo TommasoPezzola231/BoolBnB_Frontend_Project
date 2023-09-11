@@ -148,7 +148,7 @@ export default {
                                                 </span>
                                             </label>
                                         </div>
-                                        <button type="submit" class="btn my_btn col-2 mx-auto" data-bs-dismiss="modal" aria-label="Close">Cerca</button>
+                                        <button type="submit" class="btn my_btn col-3 mx-auto" data-bs-dismiss="modal" aria-label="Close">Cerca</button>
                                     </div> 
                                 </form>
                             </div>
