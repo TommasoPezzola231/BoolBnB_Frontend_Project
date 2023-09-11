@@ -49,7 +49,7 @@ export default {
 
             <!-- risultati -->
             <div v-else class="row p-2">
-                <div v-for="apartment in store.apartments" :key="apartment.id" class="col-12 col-md-6 col-xl-6 col-xxl-4 g-4 mb-5">   
+                <div v-for="apartment in store.apartments" :key="apartment.id" class="col-12 col-md-6 col-xl-6 col-xxl-4 g-4 mb-5 position-relative">   
                     <router-link class="" :to="{ name: 'apartment-show', params: { id: apartment.id } }">
                         <div class="card-apartment d-flex flex-column shadow p-1 rounded my-3 text-center h-100">
                             <div class="px-2 flex-grow-1">
@@ -58,6 +58,10 @@ export default {
                                 </div>
                                 <h3 class="mt-3">{{ apartment.title }}</h3>
                                 <p>{{ apartment.address }} {{ apartment.city }}</p>
+
+                                <div v-if="apartment.is_sponsored" class="position-absolute sponsored" >
+                                    Sponsorizzato
+                                </div>
         
                                 <div class="row">
                                     <div class="d-flex justify-content-between">
@@ -142,5 +146,12 @@ a {
 
 .card-apartment{
     background-color: white;
+}
+
+.sponsored{
+    left: 0;
+    top: 6%;
+    transform: rotate(-45deg);
+    background-color: yellowgreen;
 }
 </style>
