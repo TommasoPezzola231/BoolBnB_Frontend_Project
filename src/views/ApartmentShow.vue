@@ -89,16 +89,17 @@ export default {
                 <h1 class="mb-2 mt-3 text-center">{{ apartment.title }}</h1>
             </div>
             <div class="col-lg-8 col-md-10 col-sm-12 p-2">
-                
+
                 <img class="big-img shadow-lg"
                     :src="apartment.principal_image ? 'http://localhost:8000/storage/' + apartment.principal_image : 'https://www.signfix.com.au/wp-content/uploads/2017/09/placeholder-600x400.png'">
-        
+
                 <div class="mt-3 ">
-                    <p class="fs-3 text-center text-lg-start">{{ apartment.address }}, {{ apartment.city }}, {{ apartment.country }}</p>
+                    <p class="fs-3 text-center text-lg-start">{{ apartment.address }}</p>
                 </div>
                 <hr>
             </div>
-            <div class="col-lg-8 col-md-10 col-sm-12 p-2 d-flex align-items-center justify-content-between flex-column align-items-lg-start">
+            <div
+                class="col-lg-8 col-md-10 col-sm-12 p-2 d-flex align-items-center justify-content-between flex-column align-items-lg-start">
                 <div class="fs-4">
                     <font-awesome-icon :icon="['fas', 'house']" class="me-2 mb-2" />
                     {{ apartment.num_rooms }} stanze
@@ -118,7 +119,8 @@ export default {
             <div class="col-lg-8 col-md-10 col-sm-12 p-2 text-center text-lg-start">
                 <div class="fs-3 color-primary">Servizi presenti:</div>
             </div>
-            <div class="col-lg-8 col-md-10 col-sm-12 p-2 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div
+                class="col-lg-8 col-md-10 col-sm-12 p-2 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <template v-for="service in apartment.services" :key="service">
                     <div class="m-2 p-2 d-flex service">
                         <div class="me-2">{{ service.name_service }}</div>
@@ -128,7 +130,8 @@ export default {
             </div>
             <div class="col-lg-8 col-md-10 col-sm-12 p-2">
                 <hr>
-                <h3 class="mt-4 color-primary text-center text-lg-start">Contatta {{ apartment.user.name }} {{ apartment.user.surname }} per
+                <h3 class="mt-4 color-primary text-center text-lg-start">Contatta {{ apartment.user.name }} {{
+                    apartment.user.surname }} per
                     l'appartamento</h3>
                 <div class="my_form">
                     <!-- <ContactAparment /> -->
@@ -184,5 +187,4 @@ h1 {
     .big-img {
         height: 80vh;
     }
-}
-</style>
+}</style>
