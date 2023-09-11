@@ -58,13 +58,6 @@ export default {
               </div>
             </router-link>
 
-            <div class="align-items-center h100 d-flex">
-              <a href="#about" class="my_header_color_text">About</a>
-            </div>
-
-            <div class="align-items-center h100 d-flex">
-              <a href="#team" class="my_header_color_text">Team</a>
-            </div>
             <!-- login href = localhost:8000/login -->
             <a href="http://localhost:8000/login"
               class="align-items-center d-flex text-decoration-none my_header_color_text">Accedi</a>
@@ -111,7 +104,6 @@ export default {
             </ul>
           </div>
         </div>
-        
       </div>
     </div>
   </div>
