@@ -21,10 +21,17 @@ export default {
             message_text: "",
             apartment_id: [],
             loading: false,
+            successModalVisible: false,
+            errorModalVisible: false,
         };
     },
 
     methods: {
+
+        showErrorModal(message) {
+            this.errorMessage = message;
+            $('#errorModal').modal('show');
+        },
 
         SendRequest() {
 
@@ -49,12 +56,22 @@ export default {
                 this.message_object = ""
                 this.message_text = ""
                 this.apartment_id = ""
-                alert("Messaggio inviato con successo")
-
+                // alert('Messaggio inviato con successo')
+                // Show success modal
+                this.successModalVisible = true;
+                setTimeout(() => {
+                    this.successModalVisible = false;
+                }, 3000);
+                
             }).catch((err) => {
                 console.log('axios error:', err);
                 this.loading = false
-                alert("Errore nell'invio del messaggio")
+                // alert('Errore durante l\'invio del messaggio')
+                // Show error modal
+                this.errorModalVisible = true;
+                setTimeout(() => {
+                    this.successModalVisible = false;
+                }, 3000);
             })
         },
     },
@@ -100,8 +117,97 @@ export default {
             </form>
         </div>
     </div>
+
+    <!-- Modal successo -->
+    <div v-if="successModalVisible" class="modal-overlay d-block shadow p-2">
+        <div class="modal-dialog my_success shadow modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="">
+                    <div>
+                        <font-awesome-icon :icon="['fas', 'envelope-circle-check']" class="my_color_green"/>
+                    </div>
+                    <h3 class="modal-title">Messaggio inviato!</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="text-success m-0">L'Host ti contattera a breve.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal error -->
+    <div v-if="errorModalVisible" class="modal-overlay d-block shadow p-2">
+        <div class="modal-dialog my_error shadow modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-header d-flex align-itmes-center">
+                    <div>
+                        <font-awesome-icon :icon="['fas', 'triangle-exclamation']" class="my_color_red" />
+                    </div>
+                    <h3 class="modal-title">Errore nell'invio del messaggio!</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger">Ritenta l'invio, controlla che i dati inseriti siano esatti.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
-<script>
+<style lang="scss" scoped>
 
-</script>
+.my_color_green {
+    color: $color-success;
+}
+
+.my_color_red {
+    color: $color-primary;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(68, 67, 67, 0.575);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.25rem;
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $color-primary;
+        }
+    }
+
+    .modal-body {
+        margin-bottom: 1.25rem;
+
+    }
+
+    .modal-dialog {
+        background-color:$bg-light;
+        border-radius: 10px;
+        max-width: 25rem;
+        padding: 1.25rem;
+        text-align: center;
+    }
+
+    .my_error {
+        border: 2px solid $color-primary;
+    }
+
+    .my_success {
+        border: 2px solid $color-success;
+    }
+}
+
+</style>

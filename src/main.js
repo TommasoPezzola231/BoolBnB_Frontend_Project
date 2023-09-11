@@ -41,6 +41,7 @@ import { faRulerCombined } from "@fortawesome/free-solid-svg-icons";
 import { faEuroSign } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelopeCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 library.add(faGithub);
@@ -70,8 +71,7 @@ library.add(faRulerCombined);
 library.add(faEuroSign);
 library.add(faLocationDot);
 library.add(faTriangleExclamation);
-
-
+library.add(faEnvelopeCircleCheck);
 
 
 createApp(App)
