@@ -88,16 +88,6 @@ export default {
               </li>
               <li>
                 <div class="align-items-center h100 d-flex text-decoration-none">
-                  <a href="#about" class="my_header_color_text">About</a>
-                </div>
-              </li>
-              <li>
-                <div class="align-items-center h100 d-flex text-decoration-none">
-                  <a href="#team" class="my_header_color_text">Team</a>
-                </div>
-              </li>
-              <li>
-                <div class="align-items-center h100 d-flex text-decoration-none">
                   <a href="http://localhost:8000/login" class="my_header_color_text">Accedi</a>
                 </div>
               </li>
