@@ -6,7 +6,7 @@ export default {
 
     logo: {
       type: String,
-      default: 'src/assets/logo/Bool BnB_Black.png'
+      default: 'src/assets/logo/Bool_BnB_Black.png'
     },
   },
 
@@ -30,7 +30,7 @@ export default {
               <div class="d-flex justify-content-center align-items-center">
                 <!-- <img src="../../assets/logo/Bool BnB_Black.png" class="my_logo" alt="Logo"> -->
                 <!-- use import logo from '@/assets/logo/Bool BnB_Black.png'; -->
-              <img :src="logo" class="my_logo" alt="Logo">
+              <img src="/src/assets/logo/Bool_BnB_Black.png" class="my_logo" alt="Logo">
 
 
               </div>

@@ -30,7 +30,7 @@ export default {
                 <font-awesome-icon :icon="['fas', 'triangle-exclamation']" class="my_color_red" />
                 <p class="mt-3 my_color">Errore! La pagina che stai cercando non è stata trovata!</p>
                
-                <img :src="logo" alt="logo">
+                <img src="/src/assets/logo/Bool_BnB_Black.png" alt="logo">
             
                 <router-link :to="{ name: 'home' }" class="d-flex justify-content-between text-decoration-none gap-4 mb-5">
                     <button type="button" class="btn btn-lg my_btn">Torna alla home</button>
