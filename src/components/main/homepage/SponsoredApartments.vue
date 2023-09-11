@@ -37,7 +37,10 @@ export default {
                 store.apartmentsSponsor.push(...result.data.apartments.data),
                 store.currentPage = result.data.apartments.current_page,
                 store.lastPage = result.data.apartments.last_page
-                this.imagesLoaded = true
+
+                setTimeout(() => {
+                    this.imagesLoaded = true;
+                }, 2000);
             }).catch(err => {
                 this.$router.push( { name: "not-found" } )
                 console.log(err)
@@ -51,6 +54,7 @@ export default {
 
                 this.getapartments(pageNumber)
 
+                
             }
         }
     },
@@ -171,4 +175,6 @@ h2{
         overflow: hidden;
     } 
 }
+
+
 </style>
