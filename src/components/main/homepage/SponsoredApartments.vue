@@ -1,21 +1,20 @@
 <script>
+import { store } from '../../../store.js';
+import axios from 'axios';
 
 export default {
     name: 'SponsoredApartments',
 
-    props: {
+    /* props: {
         apartments: {
             type: Array,
             required: true,
         },
-        // getImageUrl: {
-        //     type: Function,
-        //     required: true,
-        // },
-    },  
+    }, */  
 
     data() {
         return {
+            store,
             imagesLoaded: false,
         };
     },
@@ -24,6 +23,36 @@ export default {
         setTimeout(() => {
             this.imagesLoaded = true;
         }, 2000);
+    },
+    methods: {
+        
+        getapartments(number) {
+            this.imagesLoaded = false
+            axios.get(`${this.store.baseUrl}${this.store.apiEndpoint}/apartments`, {
+                params: {
+                    page: number
+                },
+            }).then(result =>{
+                console.log(result.data.apartments.data)
+                store.apartmentsSponsor.push(...result.data.apartments.data),
+                store.currentPage = result.data.apartments.current_page,
+                store.lastPage = result.data.apartments.last_page
+                this.imagesLoaded = true
+            }).catch(err => {
+                this.$router.push( { name: "not-found" } )
+                console.log(err)
+            })
+        },
+
+        loadMore() {
+            let pageNumber = store.currentPage + 1
+
+            if( pageNumber > 0 && pageNumber <= store.lastPage ) {
+
+                this.getapartments(pageNumber)
+
+            }
+        }
     },
 }
 </script>
@@ -39,7 +68,7 @@ export default {
                 <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
                     <template v-if="imagesLoaded">
                         <!-- Show actual content -->
-                        <template v-for="apartment in apartments" :key="apartment.id">
+                        <template v-for="apartment in store.apartmentsSponsor" :key="apartment.id">
                             <div class="col col-md-6 col-lg-4 col-xxl-3">
                                 <div class="card text-white bg-dark h-100 d-flex align-items-stretch">
                                     <div class="my_card_img">
@@ -55,11 +84,16 @@ export default {
                                 </div>
                             </div>
                         </template>
+
+                        
+                        <div v-if="store.lastPage > store.currentPage" class="row mt-3 d-flex align-items-center justify-content-center">
+                            <button class="btn my_btn col-11 col-md-8 col-lg-6 col-xl-4 mx-auto" @click="loadMore">Carica altro</button>
+                        </div>
                     </template>
 
                     <template v-else>
                         <!-- placeholder card -->
-                        <div v-for="index in apartments.length" :key="index" class="col col-md-6 col-lg-4 col-xl-3">
+                        <div v-for="index in store.apartmentsSponsor.length" :key="index" class="col col-md-6 col-lg-4 col-xxl-3">
                             <div class="card text-white bg-dark h-100 d-flex align-items-stretch placeholder-card" aria-hidden="true">
                                 <span class="card-img-top placeholder-image" style="background-color: rgb(171, 173, 173);"></span>
                                 <div class="card-body">

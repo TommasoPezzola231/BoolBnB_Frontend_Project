@@ -18,6 +18,9 @@ export const store = reactive({
     apartments: [],
     services: [],
     menuVisible: false,
+    currentPage: 0,
+    lastPage: 0,
+    apartmentsSponsor: [],
     // key tom tom 
     TOMTOM_API_KEY:'nkr5gnmh40fpVDC8AD8yeyHG6DnNrhZT',
 

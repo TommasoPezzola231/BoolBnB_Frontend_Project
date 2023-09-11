@@ -151,6 +151,7 @@ a {
 .sponsored{
     left: 0;
     top: 6%;
+    padding: 0.5rem;
     transform: rotate(-45deg);
     background-color: yellowgreen;
 }
