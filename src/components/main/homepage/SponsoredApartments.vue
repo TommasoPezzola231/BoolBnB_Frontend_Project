@@ -86,8 +86,10 @@ export default {
                         </template>
 
                         
-                        <div v-if="store.lastPage > store.currentPage" class="row mt-3 d-flex align-items-center justify-content-center">
-                            <button class="btn my_btn col-11 col-md-8 col-lg-6 col-xl-4 mx-auto" @click="loadMore">Carica altro</button>
+                        <div v-if="store.lastPage > store.currentPage" class="row mt-3 mx-auto">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <button class="btn my_btn col-md-4 col-lg-6 mx-md-auto" @click="loadMore">Carica altro</button>
+                            </div>
                         </div>
                     </template>
 
