@@ -29,7 +29,7 @@ export default {
         <button type="button" class="btn btnCustom" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Ricerca Avanzata
         </button>
-        <h2 class="text-center mt-5">Risultati ricerca</h2>
+        <h2 class="text-center mt-2">Risultati ricerca</h2>
         <p class="text-center mt-3">Numero di risultati: {{ store.apartments.length }}</p>
 
         <!-- Show loading spinner when loading is true -->
