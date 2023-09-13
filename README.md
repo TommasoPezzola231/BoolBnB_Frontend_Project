@@ -13,7 +13,7 @@
 <img src="https://img.shields.io/badge/mailtrap-2.0-blue" alt="Mailtrap 2.0" />
 </p>
 
-# BoolBnB - Laravel 9.x
+# BoolBnB - Vue 3 
 
 - Sviluppata da 
     [Valerio](https://github.com/valeriobilli),
