@@ -22,7 +22,8 @@ export const store = reactive({
     lastPage: 0,
     apartmentsSponsor: [],
     // key tom tom 
-    TOMTOM_API_KEY:'nkr5gnmh40fpVDC8AD8yeyHG6DnNrhZT',
+    TOMTOM_API_KEY:'J7Pg0CIa2F4S6QGKj0csMy00adFLdu3Q',
+    // nkr5gnmh40fpVDC8AD8yeyHG6DnNrhZT
 
     imageArray:[
         {
